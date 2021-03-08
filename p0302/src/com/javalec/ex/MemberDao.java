@@ -59,22 +59,20 @@ public class MemberDao {
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, search_data);
+			if(!(check_search.equals("0"))) {
+				System.out.println(check_search);
+			    pstmt.setString(1, search_data);
+			}
 			System.out.println(search_data);
 			System.out.println(query);
 			rs = pstmt.executeQuery();
 			System.out.println("dao : "+query);
 			while(rs.next()) {
 				employee_id = rs.getInt("employee_id");
-				System.out.println(employee_id);
 				emp_name = rs.getString("emp_name");
-				System.out.println(emp_name);
 				phone_number = rs.getString("phone_number");
-				System.out.println(phone_number);
 				hire_date = rs.getTimestamp("hire_date");
-				System.out.println(hire_date);
 				salary = rs.getDouble("salary");
-				System.out.println(salary);
 				list.add(new MemberDto(employee_id, emp_name, phone_number, hire_date, salary));
 			}
 		} catch (Exception e) {
