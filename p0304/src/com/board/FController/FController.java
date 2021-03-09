@@ -29,6 +29,7 @@ public class FController extends HttpServlet {
 		System.out.println("actionDo");
 		request.setCharacterEncoding("utf-8");
 		
+		boolean pageRedirect=false;
 		String viewPage="";
 		
 		String uri = request.getRequestURI();
@@ -46,6 +47,7 @@ public class FController extends HttpServlet {
 		}else if(com.equals("/write.do")) {
 			command = new BWriteCommand();
 			command.execute(request, response);
+			pageRedirect=true;
 			viewPage = "list.do";
 		}else if(com.equals("/content_view.do")) {
 			command = new BContentCommand();
@@ -54,6 +56,7 @@ public class FController extends HttpServlet {
 		}else if(com.equals("/delete.do")) {
 			command = new BDeleteCommand();
 			command.execute(request, response);
+			pageRedirect=true;
 			viewPage = "list.do";
 		}else if(com.equals("/modify_view.do")) {
 			command = new BModifyViewCommand();
@@ -74,8 +77,12 @@ public class FController extends HttpServlet {
 		}
 		
 		//forward진행
-		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
-		dispatcher.forward(request, response);
+		if(pageRedirect==true) {
+			response.sendRedirect(viewPage);
+		}else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
+			dispatcher.forward(request, response);
+		}
  	}
 	
 	//get

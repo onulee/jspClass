@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +57,7 @@
              <a href="content_view.do?bId=${dto.bId}">${dto.bTitle }</a>
         </td>
         <td>${dto.bName }</td>
-        <td>${dto.bDate }</td>
+        <td><fmt:formatDate value="${dto.bDate}" pattern="YYYY/MM/dd"/></td>
         <td>${dto.bHit }</td>
       </tr>
       </c:forEach>
@@ -64,11 +65,32 @@
     </table>
 
     <ul class="page-num">
-      <li class="first"></li>
-      <li class="prev"></li>
-      <li class="num"><div>1</div></li>
-      <li class="next"></li>
-      <li class="last"></li>
+      <!-- 처음으로 -->
+      <a href="list.do?page=1"><li class="first"></li></a>
+      <!-- 이전페이지   1-> 0 -->
+      <c:if test="${page<=1}">
+         <li class="prev"></li>
+      </c:if>
+      <c:if test="${page>1}">
+        <a href="list.do?page=${page-1}"><li class="prev"></li></a>
+      </c:if>
+      <c:forEach var="nowPage" begin="${startPage}" end="${endPage}">
+	      <c:if test="${page == nowPage}">
+	         <li class="num"><div>${nowPage}</div></li>
+	      </c:if>
+	      <c:if test="${page != nowPage}">
+	        <a href="list.do?page=${nowPage}"><li class="num"><div>${nowPage}</div></li></a>
+	      </c:if>
+      </c:forEach>
+      <!-- 다음페이지 -->
+      <c:if test="${page<maxPage}">
+         <a href="list.do?page=${page+1}"><li class="next"></li></a>
+      </c:if>
+      <c:if test="${page>=maxPage}">
+         <li class="next"></li>
+      </c:if>
+      <!-- 최대페이지 -->
+      <a href="list.do?page=${maxPage}"><li class="last"></li></a>
     </ul>
 
     <a href="write_view.do"><div class="write">쓰기</div></a>

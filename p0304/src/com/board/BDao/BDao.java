@@ -35,6 +35,37 @@ public class BDao {
 	Timestamp bDate;
 	String query;
 	int chk;
+	int count;
+	
+	
+	//총게시글 개수 메소드
+	public int listCount() {
+		count=0;
+		
+		try {
+			conn = ds.getConnection();
+			String query = "select count(*) from board";
+			pstmt = conn.prepareStatement(query);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null) rs.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return count;
+	}//listCount
+	
+	
 	
 	//게시판 수정
 	public int bModify(String bId,String bName,String bTitle,String bContent) {
@@ -277,8 +308,9 @@ public class BDao {
 		
 		dto=null;
 		//조회수 증가 메소드호출
-		upHit(content_bId);
-		
+		//if(session_upHit==0){
+			upHit(content_bId);
+		//}
 		try {
 			conn = ds.getConnection();
 			String query = "select * from board where bId=?";
@@ -313,14 +345,23 @@ public class BDao {
 	}//contentView
 	
 	
-	//boardlist - 게시판리스트
-	public ArrayList<BDto> boardList() {
+	//boardlist - 게시판리스트 
+	public ArrayList<BDto> boardList(int page, int limit) {
 		
 		try {
 			conn = ds.getConnection();
-			query = "select * from board order by bGroup desc,bStep asc";
+			
+			query="select * from "
+					+ "(select rownum rnum,a.* from "
+					+ "(select * from board order by bGroup desc,bStep asc) a) "
+					+ "where rnum>=? and rnum<=?";
+			//query = "select * from board order by bGroup desc,bStep asc";
+			int startrow = (page-1)*10+1; // 시작 게시글번호 (1-1)*10+1 = 1, 11,21,31,41....
+			int endrow = startrow+limit-1; //마지막 게시글번호
+			
 			pstmt = conn.prepareStatement(query);
-			// pstmt.setString(1, str); - 넘어온 값이 있을 경우
+			pstmt.setInt(1, startrow);
+			pstmt.setInt(2, endrow);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {

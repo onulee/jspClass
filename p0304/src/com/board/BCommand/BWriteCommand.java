@@ -12,6 +12,7 @@ public class BWriteCommand implements BCommand {
 		String bName = request.getParameter("bName");
 		String bTitle = request.getParameter("bTitle");
 		String bContent = request.getParameter("bContent");
+		
 
 		BDao dao = new BDao();
 		int chk = dao.boardWrite(bName,bTitle,bContent);
