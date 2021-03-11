@@ -14,6 +14,7 @@ import com.board.BCommand.BCommand;
 import com.board.BCommand.BContentCommand;
 import com.board.BCommand.BDeleteCommand;
 import com.board.BCommand.BListCommand;
+import com.board.BCommand.BLoginCommand;
 import com.board.BCommand.BModifyCommand;
 import com.board.BCommand.BModifyViewCommand;
 import com.board.BCommand.BReplyCommand;
@@ -56,7 +57,6 @@ public class FController extends HttpServlet {
 		}else if(com.equals("/delete.do")) {
 			command = new BDeleteCommand();
 			command.execute(request, response);
-			pageRedirect=true;
 			viewPage = "list.do";
 		}else if(com.equals("/modify_view.do")) {
 			command = new BModifyViewCommand();
@@ -74,6 +74,14 @@ public class FController extends HttpServlet {
 			command = new BReplyCommand();
 			command.execute(request, response);
 			viewPage = "list.do";
+		}else if(com.equals("/search.do")) {
+			command = new BListCommand();
+			command.execute(request, response);
+			viewPage = "list.jsp";
+		}else if(com.equals("/login.do")) {
+			command = new BLoginCommand();
+			command.execute(request, response);
+			viewPage = "login_check.jsp";
 		}
 		
 		//forward진행

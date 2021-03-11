@@ -18,9 +18,7 @@
     function deleteChk(){
     	alert("확인");
     	if(confirm("정말 삭제하시겠습니까?")==true){
-    		var url = "<c:out value='${dto.bId}'/>";
-    		alert(url);
-    		location.href="delete.do?bId="+url;
+    		location.href="delete.do?category=${category}&search=${search}&bId=${dto.bId}";
     	}else{
     		return false;
     	}
@@ -59,12 +57,10 @@
         <td colspan="3"><strong>이전글</strong> <span class="separator">|</span> [키즈잼] 2020년 1분기 정기 휴관일 안내</td>
       </tr>
     </table>
-
-    <a href="list.do"><div class="list">목록</div></a>
+    <a href="list.do?category=${category}&search=${search}&page=${page}"><div class="list">목록</div></a>
     <div onclick="deleteChk()" class="list cursor">삭제</div>
-    <%-- <a href="delete.do?bId=${dto.bId}"><div class="list">삭제</div></a> --%>
-    <a href="modify_view.do?bId=${dto.bId}"><div class="list">수정</div></a>
-    <a href="reply_view.do?bId=${dto.bId}"><div class="list">답변달기</div></a>
+    <a href="modify_view.do?category=${category}&search=${search}&page=${page}&bId=${dto.bId}"><div class="list">수정</div></a>
+    <a href="reply_view.do?category=${category}&search=${search}&page=${page}&bId=${dto.bId}"><div class="list">답변달기</div></a>
   </section>
 </body>
 </html>

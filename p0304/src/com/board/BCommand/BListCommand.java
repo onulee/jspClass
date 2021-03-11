@@ -18,13 +18,20 @@ public class BListCommand implements BCommand {
 		int page=1;
 		int limit=10; // 게시글 개수
 		
+		String category = request.getParameter("category");
+		String search = request.getParameter("search");
+		System.out.println("bList category : "+category);
+		System.out.println("bList search : "+search);
+		
+		
 		if(request.getParameter("page")!=null) {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
 		
 		//총게시글 수 메소드
-		int listCount = dao.listCount();
-		ArrayList<BDto> list = dao.boardList(page,limit); //dao에 있는 boardList메소드 호출
+		int listCount = dao.listCount(category,search);
+		ArrayList<BDto> list = dao.boardList(page,limit,category,search); //dao에 있는 boardList메소드 호출
+		
 		//list하단 페이지 넘버링
 		int maxPage = (int)((double)listCount/limit+0.95); //121/10+0.95=13.05 -> 13페이지
 		int startPage = (((int)((double)page/10+0.9))-1)*10+1; //1,11,21,31... 10개씩 묶음
@@ -40,6 +47,8 @@ public class BListCommand implements BCommand {
 		request.setAttribute("startPage", startPage); // 시작되는 페이지 - 1,11,21..
 		request.setAttribute("endPage", endPage); // 끝나는 페이지 - 10,20,30..
 		request.setAttribute("list", list); //넘어온 데이터를 request에 저장
+		request.setAttribute("category", category);
+		request.setAttribute("search", search);
 
 	}
 
