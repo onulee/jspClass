@@ -9,7 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.shop.Command.BContentViewCommand;
+import com.shop.Command.BDeleteCommand;
 import com.shop.Command.BListCommand;
+import com.shop.Command.BModifyCommand;
+import com.shop.Command.BModifyViewCommand;
+import com.shop.Command.BReplyCommand;
+import com.shop.Command.BReplyViewCommand;
 import com.shop.Command.BWriteCommand;
 import com.shop.Command.Command;
 import com.shop.Command.LoginCommand;
@@ -36,18 +42,46 @@ public class FController extends HttpServlet {
 			command.execute(request, response);
 			viewPage="login_check.jsp";
 		}else if(com.equals("/list.do")) {
+			System.out.println("page: "+request.getParameter("page"));
 			command = new BListCommand();
 			command.execute(request, response);
 			viewPage="list.jsp";
 		}else if(com.equals("/write.do")) {
 			command = new BWriteCommand();
 			command.execute(request, response);
-			viewPage="list.do";
-			pageRedirect=true;
+			viewPage="write_check.jsp";
+			//pageRedirect=true;
 		}else if(com.equals("/write_view.do")) {
 			viewPage="write_view.jsp";
+		}else if(com.equals("/content_view.do")) {
+			command = new BContentViewCommand();
+			command.execute(request, response);
+			viewPage="content_view.jsp";
+		}else if(com.equals("/delete.do")) {
+			command = new BDeleteCommand();
+			command.execute(request, response);
+			viewPage="list.do";
+		}else if(com.equals("/bReplyView.do")) {
+			command = new BReplyViewCommand();
+			command.execute(request, response);
+			viewPage="reply_view.jsp";
+		}else if(com.equals("/reply.do")) {
+			command = new BReplyCommand();
+			command.execute(request, response);
+			viewPage="list.do";
+			pageRedirect=true;
+		}else if(com.equals("/bModify_view.do")) {
+			command = new BModifyViewCommand();
+			command.execute(request, response);
+			viewPage="modify_view.jsp";
+		}else if(com.equals("/modify.do")) {
+			command = new BModifyCommand();
+			command.execute(request, response);
+			viewPage="content_view.do";
 		}
 		
+		
+		//주소이동
 		if(pageRedirect==true) {
 			response.sendRedirect(viewPage);
 		}else {

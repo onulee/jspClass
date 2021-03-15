@@ -5,19 +5,19 @@ import java.sql.Timestamp;
 public class BoardDto {
 
 	public BoardDto(){}
-	public BoardDto(int bId, int bHit, int bGroup, int bStep, int bIndent, String bName, String bTitle, String bContent,
-			String fileName, Timestamp bDate) {
+	public BoardDto(int bId, String bName, String bTitle, String bContent,Timestamp bDate, int bHit, int bGroup, int bStep, int bIndent,  
+			String fileName ) {
 		super();
 		this.bId = bId;
+		this.bName = bName;
+		this.bTitle = bTitle;
+		this.bContent = bContent;
+		this.bDate = bDate;
 		this.bHit = bHit;
 		this.bGroup = bGroup;
 		this.bStep = bStep;
 		this.bIndent = bIndent;
-		this.bName = bName;
-		this.bTitle = bTitle;
-		this.bContent = bContent;
 		this.fileName = fileName;
-		this.bDate = bDate;
 	}
 
 	private int bId,bHit,bGroup,bStep,bIndent;

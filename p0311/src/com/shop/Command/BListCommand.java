@@ -17,7 +17,7 @@ public class BListCommand implements Command {
 		int limit=10; //한페이지에 나오는 게시글수 : 10
 		
 		//page데이터가 있으면 데이터값 적용
-		if(request.getParameter("page")!=null) {
+		if(request.getParameter("page")!=null && request.getParameter("page")!="") {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
 		
