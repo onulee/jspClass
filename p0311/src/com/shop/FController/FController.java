@@ -67,7 +67,7 @@ public class FController extends HttpServlet {
 		}else if(com.equals("/reply.do")) {
 			command = new BReplyCommand();
 			command.execute(request, response);
-			viewPage="list.do";
+			viewPage="list.do?category="+request.getAttribute("category")+"&search="+request.getAttribute("search")+"&bId="+request.getAttribute("bId")+"&page="+request.getAttribute("page");
 			pageRedirect=true;
 		}else if(com.equals("/bModify_view.do")) {
 			command = new BModifyViewCommand();

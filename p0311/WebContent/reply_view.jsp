@@ -24,6 +24,7 @@
       <input type="hidden" name="bStep" value="${dto.bStep }">
       <input type="hidden" name="bIndent" value="${dto.bIndent }">
       <input type="hidden" name="category" value="${category }">
+      <input type="hidden" name="page" value="${page }">
       <input type="hidden" name="search" value="${search }">
         <colgroup>
           <col width="15%">

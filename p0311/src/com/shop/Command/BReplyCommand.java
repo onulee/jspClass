@@ -18,7 +18,7 @@ public class BReplyCommand implements Command {
 		String uploadPath = request.getSession().getServletContext().getRealPath("upload");
 		int size = 10*1024*1024; //10M
 		String bName,bTitle,bContent,fileName="";
-		String bId,bGroup,bStep,bIndent="";
+		String page,bId,bGroup,bStep,bIndent="";
 		try {
 			MultipartRequest multi = new MultipartRequest(request, uploadPath,size,"utf-8",new DefaultFileRenamePolicy());
 			bName = multi.getParameter("bName");
@@ -29,12 +29,14 @@ public class BReplyCommand implements Command {
 			bGroup = multi.getParameter("bGroup");
 			bStep = multi.getParameter("bStep");
 			bIndent = multi.getParameter("bIndent");
+			page = multi.getParameter("page");
 			
 			chk = dao.bReply(bId,bName,bTitle,bContent,bGroup,bStep,bIndent,fileName);
 			
 			request.setAttribute("flag", chk);
 			request.setAttribute("category", multi.getParameter("category"));
 			request.setAttribute("search", multi.getParameter("search"));
+			request.setAttribute("page", multi.getParameter("page"));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
