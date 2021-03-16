@@ -42,7 +42,6 @@ public class FController extends HttpServlet {
 			command.execute(request, response);
 			viewPage="login_check.jsp";
 		}else if(com.equals("/list.do")) {
-			System.out.println("page: "+request.getParameter("page"));
 			command = new BListCommand();
 			command.execute(request, response);
 			viewPage="list.jsp";
@@ -77,7 +76,11 @@ public class FController extends HttpServlet {
 		}else if(com.equals("/modify.do")) {
 			command = new BModifyCommand();
 			command.execute(request, response);
-			viewPage="content_view.do";
+			viewPage="content_view.do?category="+request.getAttribute("category")+"&search="+request.getAttribute("search")+"&bId="+request.getAttribute("bId")+"&page="+request.getAttribute("page");
+		}else if(com.equals("/search.do")) {
+			command = new BListCommand();
+			command.execute(request, response);
+			viewPage="list.jsp";
 		}
 		
 		

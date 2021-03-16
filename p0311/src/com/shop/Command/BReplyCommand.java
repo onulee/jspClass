@@ -33,7 +33,8 @@ public class BReplyCommand implements Command {
 			chk = dao.bReply(bId,bName,bTitle,bContent,bGroup,bStep,bIndent,fileName);
 			
 			request.setAttribute("flag", chk);
-			
+			request.setAttribute("category", multi.getParameter("category"));
+			request.setAttribute("search", multi.getParameter("search"));
 			
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -49,6 +49,15 @@
         <td colspan="3" class="article">${dto.bContent }</td>
       </tr>
       <tr>
+        <td>파일첨부</td>
+        <td colspan="2"><a href="${pageContext.request.contextPath}/upload/${dto.fileName }" download>${dto.fileName }</a></td>
+      </tr>
+      <tr>
+        <td colspan="3" class="article">
+           <img alt="" src="${pageContext.request.contextPath}/upload/${dto.fileName }">
+        </td>
+      </tr>
+      <tr>
         <td colspan="3"><strong>다음글</strong> <span class="separator">|</span> [키즈잼] 2월 프로그램 안내</td>
       </tr>
       <tr>
@@ -56,10 +65,10 @@
       </tr>
     </table>
 
-    <a href="list.do?page=${page}"><div class="list">목록</div></a>
+    <a href="list.do?category=${category }&search=${search }&page=${page}"><div class="list">목록</div></a>
     <div class="list mouseCursor"  onclick="delete_check()">삭제</div>
-    <a href="bModify_view.do?page=${page}&bId=${dto.bId}"><div class="list">수정</div></a>
-    <a href="bReplyView.do?page=${page}&bId=${dto.bId}"><div class="list">답글달기</div></a>
+    <a href="bModify_view.do?category=${category }&search=${search }&page=${page}&bId=${dto.bId}"><div class="list">수정</div></a>
+    <a href="bReplyView.do?category=${category }&search=${search }&page=${page}&bId=${dto.bId}"><div class="list">답글달기</div></a>
   </section>
 </body>
 </html>

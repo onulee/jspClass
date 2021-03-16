@@ -16,15 +16,15 @@
 <section>
     <h1>NOTICE</h1>
     <div class="wrapper">
-      <form action="/search" name="search" method="post">
+      <form action="search.do" name="search" method="post">
         <select name="category" id="category">
-          <option value="0">전체</option>
-          <option value="title">제목</option>
+          <option value="all" >전체</option>
+          <option value="title" >제목</option>
           <option value="content">내용</option>
         </select>
 
         <div class="title">
-          <input type="text" size="16">
+          <input type="text" name="search" size="16" value="${search}">
         </div>
   
         <button type="submit"><i class="fas fa-search"></i></button>
@@ -55,7 +55,7 @@
         <c:forEach begin="1" end="${dto.bIndent }" >
         └▶<img src="images/reply1.png">
         </c:forEach>
-        <a href="content_view.do?page=${page}&bId=${dto.bId }">${dto.bTitle }</a>
+        <a href="content_view.do?category=${category }&search=${search }&page=${page}&bId=${dto.bId }">${dto.bTitle }</a>
         </td>
         <td>${dto.bName }</td>
         <td>${dto.bDate }</td>
@@ -67,13 +67,13 @@
 
     <!-- 페이지 번호넣기 -->
     <ul class="page-num">
-      <a href="list.do?page=1"><li class="first"></li></a>
+      <a href="list.do?category=${category }&search=${search }&page=1"><li class="first"></li></a>
       <c:choose>
         <c:when test="${page <= 1 }">
            <li class="prev"></li>
         </c:when>
         <c:otherwise>
-           <a href="list.do?page=${page-1}"><li class="prev"></li></a>
+           <a href="list.do?category=${category }&search=${search }&page=${page-1}"><li class="prev"></li></a>
         </c:otherwise>
       </c:choose>
       
@@ -84,7 +84,7 @@
              <li class="num"><div>${nowpage}</div></li>
           </c:when>
           <c:otherwise>
-             <a href="list.do?page=${nowpage}"><li class="num"><div>${nowpage}</div></li></a>
+             <a href="list.do?category=${category }&search=${search }&page=${nowpage}"><li class="num"><div>${nowpage}</div></li></a>
           </c:otherwise>
         </c:choose>
       </c:forEach>
@@ -93,10 +93,10 @@
            <li class="next"></li>
         </c:when>
         <c:otherwise>
-           <a href="list.do?page=${page+1}"><li class="next"></li></a>
+           <a href="list.do?category=${category }&search=${search }&page=${page+1}"><li class="next"></li></a>
         </c:otherwise>
       </c:choose>
-      <a href="list.do?page=${maxpage }"><li class="last"></li></a>
+      <a href="list.do?category=${category }&search=${search }&page=${maxpage }"><li class="last"></li></a>
     </ul>
     <a href="write_view.do"><div class="write">쓰기</div></a>
   </section>

@@ -17,10 +17,12 @@
     <h1>게시글수정</h1>
     <hr>
 
-    <form action="modify.do" name="modify" method="post">
+    <form action="modify.do" name="modify" method="post" enctype="multipart/form-data">
       <table>
       <input type="hidden" name="page" value="${page }">
       <input type="hidden" name="bId" value="${dto.bId }">
+      <input type="hidden" name="category" value="${category }">
+      <input type="hidden" name="search" value="${search}">
         <colgroup>
           <col width="15%">
           <col width="85%">

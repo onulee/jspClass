@@ -17,7 +17,7 @@
 	           alert("데이터가 정상적으로 저장되었습니다.!");
 	           alert("데이터값 : "+ ${page});
 	        </script>
-	        <c:redirect url="/list.do" >
+	        <c:redirect url="/list.do?page=${page}" >
 	          <%-- <c:param name="page" value="${page}"></c:param> --%>
 	        </c:redirect>
 	      </c:otherwise>

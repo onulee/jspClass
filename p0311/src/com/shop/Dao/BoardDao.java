@@ -36,6 +36,34 @@ public class BoardDao {
 		}
 	}
 	
+	//수정내용 저장메소드
+	public int bModify(String user_id,String bTitle,String bContent,String fileName) {
+		
+		try {
+			conn=ds.getConnection();
+			String query = "update notice_board set "
+					+ "bTitle=?,bContent=?,fileName=? where bId=? ";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, bTitle);
+			pstmt.setString(2, bContent);
+			pstmt.setString(3, fileName);
+			pstmt.setString(4, user_id);
+			chk = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) rs.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return chk;
+	}//bModify
+	
 	// 수정뷰페이지 메소드
 	public BoardDto bModifyView(String user_id) {
 		dto=null;
@@ -292,14 +320,29 @@ public class BoardDao {
 	
 	
 	//전체게시글 count
-	public int listCount() {
+	public int listCount(String category,String search) {
 		int count=0; //초기화
 		try {
 			conn=ds.getConnection();
+			String query = "";
+			if(category==null || category.equals("")) {
+				query ="select count(*) from notice_board";
+				pstmt = conn.prepareStatement(query);
+			}else if(category.equals("all")) {
+				query ="select count(*) from notice_board where bTitle like ? or bContent like ?";
+				pstmt = conn.prepareStatement(query);
+				pstmt.setString(1, "%"+search+"%");
+				pstmt.setString(2, "%"+search+"%");
+			}else if(category.equals("title")) {
+				query ="select count(*) from notice_board where bTitle like ?";
+				pstmt = conn.prepareStatement(query);
+				pstmt.setString(1, "%"+search+"%");
+			}else if(category.equals("content")) {
+				query ="select count(*) from notice_board where bContent like ?";
+				pstmt = conn.prepareStatement(query);
+				pstmt.setString(1, "%"+search+"%");
+			}
 			
-			String query ="select count(*) from notice_board";
-			pstmt = conn.prepareStatement(query);
-			//pstmt.setString(1, user_id);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				count = rs.getInt(1);
@@ -319,19 +362,52 @@ public class BoardDao {
 	}
 	
 	//전체게시글 list
-	public ArrayList<BoardDto> list(int page,int limit){
+	public ArrayList<BoardDto> list(int page,int limit,String category,String search){
 		list=new ArrayList<BoardDto>();//초기화
 		int startrow = (page-1)*limit+1; // 시작 게시글번호 1,11,21...
 		int endrow = startrow+limit-1; // 마지막 게시글번호 10,20,30...
 		try {
 			conn=ds.getConnection();
-			String query = "select * from "
-					+ "(select rownum rnum,a.*  from "
-					+ "(select * from notice_board order by bGroup desc, bStep asc) a)"
-					+ "where rnum>=? and rnum<=?";
-			pstmt = conn.prepareStatement(query);
-			pstmt.setInt(1, startrow);
-			pstmt.setInt(2, endrow);
+			
+			//category,search 없을 경우
+			if(category==null || category.equals("")) {
+				String query = "select * from "
+						+ "(select rownum rnum,a.*  from "
+						+ "(select * from notice_board order by bGroup desc, bStep asc) a)"
+						+ "where rnum>=? and rnum<=?";
+				pstmt = conn.prepareStatement(query);
+				pstmt.setInt(1, startrow);
+				pstmt.setInt(2, endrow);
+			}else if(category.equals("all")) { //category=all경우
+				String query = "select * from (select rownum rnum,a.* from"
+						+ "(select * from notice_board where bTitle like ? or bContent like ?"
+						+ "order by bGroup desc, bStep asc) a)"
+						+ "where rnum>=? and rnum<=?";
+				pstmt = conn.prepareStatement(query);
+				pstmt.setString(1, "%"+search+"%");
+				pstmt.setString(2, "%"+search+"%");
+				pstmt.setInt(3, startrow);
+				pstmt.setInt(4, endrow);
+			}else if(category.equals("title")) {
+				String query = "select * from (select rownum rnum,a.* from"
+						+ "(select * from notice_board where bTitle like ?"
+						+ "order by bGroup desc, bStep asc) a)"
+						+ "where rnum>=? and rnum<=?";
+				pstmt = conn.prepareStatement(query);
+				pstmt.setString(1, "%"+search+"%");
+				pstmt.setInt(2, startrow);
+				pstmt.setInt(3, endrow);
+			}else if(category.equals("content")) {
+				String query = "select * from (select rownum rnum,a.* from"
+						+ "(select * from notice_board where bContent like ?"
+						+ "order by bGroup desc, bStep asc) a)"
+						+ "where rnum>=? and rnum<=?";
+				pstmt = conn.prepareStatement(query);
+				pstmt.setString(1, "%"+search+"%");
+				pstmt.setInt(2, startrow);
+				pstmt.setInt(3, endrow);
+			}
+			
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				bId = rs.getInt("bId");

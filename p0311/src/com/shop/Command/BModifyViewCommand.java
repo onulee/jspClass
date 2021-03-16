@@ -18,6 +18,8 @@ public class BModifyViewCommand implements Command {
 		
 		request.setAttribute("dto", dto);
 		request.setAttribute("page", page);
+		request.setAttribute("category", request.getParameter("category"));
+		request.setAttribute("search", request.getParameter("search"));
 
 	}
 
