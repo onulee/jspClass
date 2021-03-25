@@ -55,7 +55,7 @@
         <c:forEach begin="1" end="${dto.bIndent }" >
          <img src="images/icon_reply.png">
         </c:forEach>
-        <a href="content_view.do?category=${category }&search=${search }&page=${page}&bId=${dto.bId }">${dto.bTitle }</a>
+        <a href="content_view?bId=${dto.bId}">${dto.bTitle }</a>
         </td>
         <td>${dto.bName }</td>
         <td>${dto.bDate }</td>

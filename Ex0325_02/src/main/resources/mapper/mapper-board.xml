@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.site.mapper.Board_Mapper">
+  <select id="selectBoardList" resultType="com.site.dto.BoardDto">
+      select * from  <![CDATA[(select rownum rnum,a.*  from
+		(select * from notice_board order by bGroup desc, bStep asc) a) 
+		where rnum>=1 and rnum<=10]]>
+  </select>
+  
+  <select id="selectBoardContentView" parameterType="int" resultType="com.site.dto.BoardDto">
+       select * from notice_board where bId=#{bId}
+  </select>
+
+  <select id="selectloginCheck" parameterType="com.site.dto.MemberDto" resultType="com.site.dto.MemberDto">
+       select * from member where id=#{id} and pw=#{pw}
+  </select>
+
+</mapper>
