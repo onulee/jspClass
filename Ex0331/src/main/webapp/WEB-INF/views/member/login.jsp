@@ -5,6 +5,17 @@
 <head>
     <meta charset="UTF-8">
     <title>로그인</title>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+       function loginCheck(){
+    	   
+    	   alert("로그인 체크합니다.");
+    	   
+    	   
+       }
+    
+    </script>
+    
     <style>
         *{
             margin: 0;
@@ -106,7 +117,7 @@
     <div id="container">
         <div id="content">
             <div style="margin-bottom: 7px"></div>
-            <form action="../member/loginOk" method="post" name="loginForm">
+            <form action="" method="post" name="loginForm">
                 <fieldset style="border: 0">
                     <div class="id_area">
                         <div class="input_row" id="id_area">
@@ -122,7 +133,7 @@
                             </span>
                         </div>
                     </div>
-                    <input class="btn_login" type="submit" value="로그인">
+                    <input type="button" onclick="loginCheck()" class="btn_login" value="로그인">
                 </fieldset>
             </form>
         </div>

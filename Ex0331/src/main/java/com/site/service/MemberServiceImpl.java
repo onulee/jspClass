@@ -3,6 +3,8 @@ package com.site.service;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,10 +18,17 @@ public class MemberServiceImpl implements MemberService{
 	MemberMapper memberMapper;
 
 	@Override
-	public MemberDto loginCheck(MemberDto dto) {
-		
+	public Map loginCheck(MemberDto dto) {
+		Map map = new HashMap<String, Object>();
 		MemberDto memberDto = memberMapper.selectLoginCheck(dto);
+		int loginCheck=-1;
+		if(memberDto != null) {
+			loginCheck = 1;  //dto에 데이터가 있으면 성공!
+		}
 		
-		return memberDto;
+		map.put("memberDto", memberDto);
+		map.put("loginCheck", loginCheck);
+		
+		return map;
 	}
 }

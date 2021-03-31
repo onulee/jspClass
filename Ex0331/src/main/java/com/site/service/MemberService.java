@@ -6,6 +6,6 @@ import com.site.dto.MemberDto;
 
 public interface MemberService {
 
-	MemberDto loginCheck(MemberDto dto);
+	Map loginCheck(MemberDto dto);
 
 }

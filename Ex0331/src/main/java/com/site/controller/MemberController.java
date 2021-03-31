@@ -32,17 +32,16 @@ public class MemberController {
 	
 	@RequestMapping("/member/loginOk")
 	public String loginOk(HttpServletRequest request, MemberDto dto,Model model) {
-		MemberDto memberDto = memberService.loginCheck(dto);
+		Map map = memberService.loginCheck(dto);
 		String url="redirect:/member/login"; //로그인실패시
-		int loginCheck=-1;
-		if(memberDto != null) {
-			loginCheck = 1;  //dto에 데이터가 있으면 성공!
+		
+		if((int)map.get("loginCheck")==1) {
 			HttpSession session = request.getSession();
 			session.setAttribute("session_flag", "success");
-			session.setAttribute("session_nName",memberDto.getNname());
-			url="board/index"; //로그인성공시
+			MemberDto memberDto = (MemberDto) map.get("memberDto");
+			session.setAttribute("session_nName", memberDto.getNname());
+			url="board/index";
 		}
-		//model.addAttribute("map",map);
 		return url;
 	}
 	
