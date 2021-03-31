@@ -6,6 +6,6 @@ import com.site.dto.MemberDto;
 
 public interface MemberService {
 
-	Map loginCheck(MemberDto dto);
+	Map loginCheck(String id,String pw);
 
 }

@@ -7,6 +7,6 @@ import com.site.dto.MemberDto;
 @Mapper
 public interface MemberMapper {
 
-	MemberDto selectLoginCheck(MemberDto dto);
+	MemberDto selectLoginCheck(String id,String pw);
 
 }

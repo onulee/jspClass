@@ -9,8 +9,8 @@
   <title>게시판</title>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700,900&display=swap&subset=korean" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/notice_list.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/notice_list.css">
 </head>
 <body>
 <section>
@@ -50,16 +50,16 @@
       <!-- 내용부분 -->
       <c:forEach var="dto" items="${list }">
       <tr>
-        <td><span class="table-notice">${dto.bId }</span></td>
+        <td><span class="table-notice">${dto.bid }</span></td>
         <td class="table-title">
-        <c:forEach begin="1" end="${dto.bIndent }" >
-         <img src="images/icon_reply.png">
+        <c:forEach begin="1" end="${dto.bindent }" >
+         <img src="../images/icon_reply.png">
         </c:forEach>
-        <a href="content_view.do?category=${category }&search=${search }&page=${page}&bId=${dto.bId }">${dto.bTitle }</a>
+        <a href="content_view.do?category=${category }&search=${search }&page=${page}&bId=${dto.bid }">${dto.btitle }</a>
         </td>
-        <td>${dto.bName }</td>
-        <td>${dto.bDate }</td>
-        <td>${dto.bHit }</td>
+        <td>${dto.bname }</td>
+        <td>${dto.bdate }</td>
+        <td>${dto.bhit }</td>
       </tr>
       </c:forEach>
       

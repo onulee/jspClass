@@ -7,7 +7,7 @@
   <select id="selectBoardListAll" resultType="com.site.dto.BoardDto">
       <![CDATA[
         select * from  (select rownum rnum,a.*  from
-		(select * from notice_board order by bGroup desc, bStep asc) a) 
+		(select * from notice_board order by bgroup desc, bstep asc) a) 
 		where rnum>=1 and rnum<=10
 	  ]]>
   </select>

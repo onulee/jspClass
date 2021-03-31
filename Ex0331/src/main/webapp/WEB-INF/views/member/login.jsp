@@ -8,10 +8,25 @@
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
        function loginCheck(){
-    	   
-    	   alert("로그인 체크합니다.");
-    	   
-    	   
+    	   $.ajax({
+			   url:"/loginCheck",
+			   type:"get",
+			   data:{
+				   "id":$("#id").val(),"pw":$("#pw").val()
+			   },
+			   contentType:"application/json",
+			   success:function(data){
+				   if(data.loginCheck==1){
+					   alert(data.message);
+					   location.href="/board/index";
+				   }else{
+					   alert(data.message);
+				   }
+			   },
+			   error:function(){
+				   alert("에러");
+			   }
+		   });
        }
     
     </script>

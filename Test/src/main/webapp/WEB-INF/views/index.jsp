@@ -20,7 +20,7 @@
 		    <li><a href="../member/logout">로그아웃</a></li>
 		    <li><a href="modify.do">회원정보수정</a></li>
 		    <li><a href="view.do">회원정보보기</a></li>
-	        <li><a href="/board/list">게시판리스트</a></li>
+	        <li><a href="list.do">게시판리스트</a></li>
 	    </c:otherwise>
 	  </c:choose>
 	    <hr>

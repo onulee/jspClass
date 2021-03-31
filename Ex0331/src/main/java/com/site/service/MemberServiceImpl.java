@@ -18,16 +18,19 @@ public class MemberServiceImpl implements MemberService{
 	MemberMapper memberMapper;
 
 	@Override
-	public Map loginCheck(MemberDto dto) {
+	public Map loginCheck(String id,String pw) {
 		Map map = new HashMap<String, Object>();
-		MemberDto memberDto = memberMapper.selectLoginCheck(dto);
+		MemberDto memberDto = memberMapper.selectLoginCheck(id,pw);
+		String message = "아이디와 패스워드가 일치하지 않습니다.";
 		int loginCheck=-1;
 		if(memberDto != null) {
 			loginCheck = 1;  //dto에 데이터가 있으면 성공!
+			message = "로그인이 정상적으로 처리되었습니다.";
 		}
 		
 		map.put("memberDto", memberDto);
 		map.put("loginCheck", loginCheck);
+		map.put("message", message);
 		
 		return map;
 	}
