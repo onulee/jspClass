@@ -26,6 +26,11 @@ public class BListCommand implements Command {
 		
 		//게시글
 		ArrayList<BoardDto> list = dao.list(page,limit,category,search);
+		
+		
+		
+		
+		
 		//전체리스트 개수메소드
 		int listCount = dao.listCount(category,search);
 		
@@ -36,6 +41,10 @@ public class BListCommand implements Command {
 		//마지막 페이지 번호 : 
 		int endpage = maxpage;
 		if(endpage>startpage+10-1) endpage = startpage+10-1;
+		
+		
+		
+		
 		
 		//전송
 		request.setAttribute("listCount", listCount);

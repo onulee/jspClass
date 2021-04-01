@@ -18,7 +18,7 @@
 			   success:function(data){
 				   if(data.loginCheck==1){
 					   alert(data.message);
-					   location.href="/board/index";
+					   location.href="/index";
 				   }else{
 					   alert(data.message);
 				   }

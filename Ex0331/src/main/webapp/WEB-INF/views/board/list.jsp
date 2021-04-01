@@ -16,15 +16,15 @@
 <section>
     <h1>NOTICE</h1>
     <div class="wrapper">
-      <form action="search.do" name="search" method="post">
+      <form action="./list" name="search" method="post">
         <select name="category" id="category">
-          <option value="all" ${category eq 'all'? 'selected':'' } >전체</option>
-          <option value="title" ${category eq 'title'? 'selected':'' }>제목</option>
-          <option value="content" ${category eq 'content'? 'selected':'' }>내용</option>
+          <option value="all" ${map.category eq 'all'? 'selected':'' } >전체</option>
+          <option value="title" ${map.category eq 'title'? 'selected':'' }>제목</option>
+          <option value="content" ${map.category eq 'content'? 'selected':'' }>내용</option>
         </select>
 
         <div class="title">
-          <input type="text" name="search" size="16" value="${search}">
+          <input type="text" name="search" size="16" value="${map.search}">
         </div>
   
         <button type="submit"><i class="fas fa-search"></i></button>
@@ -48,14 +48,14 @@
         <th>조회수</th>
       </tr>
       <!-- 내용부분 -->
-      <c:forEach var="dto" items="${list }">
+      <c:forEach var="dto" items="${map.list }">
       <tr>
         <td><span class="table-notice">${dto.bid }</span></td>
         <td class="table-title">
         <c:forEach begin="1" end="${dto.bindent }" >
          <img src="../images/icon_reply.png">
         </c:forEach>
-        <a href="content_view.do?category=${category }&search=${search }&page=${page}&bId=${dto.bid }">${dto.btitle }</a>
+        <a href="./content_view?category=${map.category }&search=${map.search }&page=${map.page}&bid=${dto.bid }">${dto.btitle }</a>
         </td>
         <td>${dto.bname }</td>
         <td>${dto.bdate }</td>
@@ -67,38 +67,38 @@
 
     <!-- 페이지 번호넣기 -->
     <ul class="page-num">
-      <a href="list.do?category=${category }&search=${search }&page=1"><li class="first"></li></a>
+      <a href="./list?category=${map.category }&search=${map.search }&page=1"><li class="first"></li></a>
       <c:choose>
-        <c:when test="${page <= 1 }">
+        <c:when test="${map.page <= 1 }">
            <li class="prev"></li>
         </c:when>
         <c:otherwise>
-           <a href="list.do?category=${category }&search=${search }&page=${page-1}"><li class="prev"></li></a>
+           <a href="./list?category=${map.category }&search=${map.search }&page=${map.page-1}"><li class="prev"></li></a>
         </c:otherwise>
       </c:choose>
       
       <!-- 번호반복 -->
-      <c:forEach var="nowpage" begin="${startpage }" end="${endpage }">
+      <c:forEach var="nowpage" begin="${map.startpage }" end="${map.endpage }">
         <c:choose>
-          <c:when test="${page==nowpage}">
+          <c:when test="${map.page==nowpage}">
              <li class="num"><div>${nowpage}</div></li>
           </c:when>
           <c:otherwise>
-             <a href="list.do?category=${category }&search=${search }&page=${nowpage}"><li class="num"><div>${nowpage}</div></li></a>
+             <a href="./list?category=${map.category }&search=${map.search }&page=${nowpage}"><li class="num"><div>${nowpage}</div></li></a>
           </c:otherwise>
         </c:choose>
       </c:forEach>
       <c:choose>
-        <c:when test="${page >= maxpage }">
+        <c:when test="${map.page >= map.maxpage }">
            <li class="next"></li>
         </c:when>
         <c:otherwise>
-           <a href="list.do?category=${category }&search=${search }&page=${page+1}"><li class="next"></li></a>
+           <a href="./list?category=${map.category }&search=${map.search }&page=${map.page+1}"><li class="next"></li></a>
         </c:otherwise>
       </c:choose>
-      <a href="list.do?category=${category }&search=${search }&page=${maxpage }"><li class="last"></li></a>
+      <a href="./list?category=${map.category }&search=${map.search }&page=${map.maxpage }"><li class="last"></li></a>
     </ul>
-    <a href="write_view.do"><div class="write">쓰기</div></a>
+    <a href="./write_view"><div class="write">쓰기</div></a>
   </section>
 
 </body>

@@ -10,7 +10,7 @@
 		<title>로그아웃</title>
 		<script type="text/javascript">
 		   alert("로그아웃 되었습니다.");
-		   location.href="../board/index";
+		   location.href="/index";
 		</script>
 	</head>
 	<body>

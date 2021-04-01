@@ -10,13 +10,13 @@
   <title>뷰페이지</title>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700,900&display=swap&subset=korean" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/read.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/read.css">
   <style>.mouseCursor { cursor: pointer; }</style>
   <script type="text/javascript">
       function delete_check(){
     	  if(confirm("삭제하시겠습니까?")){
-    		  location.href="delete.do?page=${page }&bId=${dto.bId}";
+    		  location.href="delete?page=${map.page }&bId=${map.boardDto.bid}";
     	  }else{
     		  return false; 
     	  }
@@ -38,23 +38,23 @@
         <th colspan="3">제목</th>
       </tr>
       <tr>
-        <td colspan="3"><strong>${dto.bTitle }</strong></td>
+        <td colspan="3"><strong>${map.boardDto.btitle }</strong></td>
       </tr>
       <tr>
-        <td>${dto.bName }</td>
+        <td>${map.boardDto.bname }</td>
         <td>조회수</td>
-        <td>${dto.bHit }</td>
+        <td>${map.boardDto.bhit }</td>
       </tr>
       <tr>
-        <td colspan="3" class="article">${dto.bContent }</td>
+        <td colspan="3" class="article">${map.boardDto.bcontent }</td>
       </tr>
       <tr>
         <td>파일첨부</td>
-        <td colspan="2"><a href="${pageContext.request.contextPath}/upload/${dto.fileName }" download>${dto.fileName }</a></td>
+        <td colspan="2"><a href="/upload/${map.boardDto.fileName }" download>${map.boardDto.fileName }</a></td>
       </tr>
-      <tr>
+      <tr>-
         <td colspan="3" class="article">
-           <img alt="" src="${pageContext.request.contextPath}/upload/${dto.fileName }">
+           <img alt="" src="/upload/${map.boardDto.fileName }">
         </td>
       </tr>
       <tr>
@@ -65,10 +65,10 @@
       </tr>
     </table>
 
-    <a href="list.do?category=${category }&search=${search }&page=${page}"><div class="list">목록</div></a>
+    <a href="list?category=${map.category }&search=${map.search }&page=${map.page}"><div class="list">목록</div></a>
     <div class="list mouseCursor"  onclick="delete_check()">삭제</div>
-    <a href="bModify_view.do?category=${category }&search=${search }&page=${page}&bId=${dto.bId}"><div class="list">수정</div></a>
-    <a href="bReplyView.do?category=${category }&search=${search }&page=${page}&bId=${dto.bId}"><div class="list">답글달기</div></a>
+    <a href="bModify_view?category=${map.category }&search=${map.search }&page=${map.page}&bId=${map.boardDto.bid}"><div class="list">수정</div></a>
+    <a href="bReplyView?category=${map.category }&search=${map.search }&page=${map.page}&bId=${map.boardDto.bid}"><div class="list">답글달기</div></a>
   </section>
 </body>
 </html>
