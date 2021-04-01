@@ -72,26 +72,29 @@ public class BoardServiceImpl implements BoardService {
 		return map;
 	}
 
-
 	@Override
 	public void boardWrite(BoardDto boardDto, @RequestPart MultipartFile file) {
-		//원본파일이름
-		String fileName = file.getOriginalFilename();
-		//확장자명 가져오기
-		String fileNameExtension = FilenameUtils.getExtension(fileName).toLowerCase();
-		//파일 저장 위치
-		String fileUrl = "C:/GitSave/jspClass/Ex0331/src/main/resources/static/upload/";
-		//신규파일이름 ( 32자리이름생성.확장자명 )
-		String uploadFileName = RandomStringUtils.randomAlphanumeric(32)+"."+fileNameExtension;
-	    File f = new File(fileUrl+uploadFileName);
-	    try {
-	    	file.transferTo(f);
-		} catch (Exception e) {
-			e.printStackTrace();
+		
+			//원본파일이름
+			String fileName = file.getOriginalFilename();
+			//확장자명 가져오기
+			String fileNameExtension = FilenameUtils.getExtension(fileName).toLowerCase();
+			if(FilenameUtils.getExtension(fileName).toLowerCase() != "") {
+				//파일 저장 위치
+				String fileUrl = "C:/GitSave/jspClass/Ex0331/src/main/resources/static/upload/";
+				//신규파일이름 ( 32자리이름생성.확장자명 )
+				String uploadFileName = RandomStringUtils.randomAlphanumeric(32)+"."+fileNameExtension;
+				File f = new File(fileUrl+uploadFileName);
+				try {
+					file.transferTo(f);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			    //파일이름저장
+				boardDto.setFileName(uploadFileName);
+		}else {
+			boardDto.setFileName("");
 		}
-
-	    //파일이름저장
-	    boardDto.setFileName(uploadFileName);
 	    
 	    //mapper전달
 	    boardMapper.insertBoardWrite(boardDto);
