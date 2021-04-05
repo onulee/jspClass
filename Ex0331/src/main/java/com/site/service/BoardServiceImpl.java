@@ -101,6 +101,91 @@ public class BoardServiceImpl implements BoardService {
 	    
 		return;
 	}
+
+
+	@Override
+	public Map<String, Object> boardModify_view(String bid, String page, String category, String search) {
+		//content 1개 가져오기
+		boardDto = boardMapper.selectBoardContent_view(bid);
+		map.put("boardDto", boardDto);
+		map.put("category", category);
+		map.put("search", search);
+		map.put("page", page);
+		
+		return map;
+	}
+
+
+	@Override
+	public void boardModify(BoardDto boardDto, MultipartFile file) {
+		//원본파일이름
+		String orgfileName = file.getOriginalFilename();
+		System.out.println("impl : "+orgfileName);
+		if(file.getSize() != 0) { //파일사이즈가 0이 아니면
+			//파일 저장 위치
+			String fileUrl = "C:/GitSave/jspClass/Ex0331/src/main/resources/static/upload/";
+			//신규파일이름 ( 32자리이름생성.확장자명 )
+			//이름에 시간추가
+			long time = System.currentTimeMillis();
+			String uploadFileName = String.format("%d_%s", time,orgfileName);
+			File f = new File(fileUrl+uploadFileName);
+			try {
+				file.transferTo(f);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		    //파일이름저장
+			boardDto.setFileName(uploadFileName);
+		}else {
+			// 기존 파일이름을 그대로 저장시키면 됨. 
+			//boardDto.setFileName("");
+		}
+    
+	    //mapper전달
+	    boardMapper.updateBoardWrite(boardDto);
+    
+    return;
+		
+	}
+
+
+	@Override
+	public void boardReply(BoardDto boardDto, MultipartFile file) {
+		//원본파일이름
+		String orgfileName = file.getOriginalFilename();
+		System.out.println("impl : "+orgfileName);
+		if(file.getSize() != 0) { //파일사이즈가 0이 아니면
+			//파일 저장 위치
+			String fileUrl = "C:/GitSave/jspClass/Ex0331/src/main/resources/static/upload/";
+			//신규파일이름 ( 32자리이름생성.확장자명 )
+			//이름에 시간추가
+			long time = System.currentTimeMillis();
+			String uploadFileName = String.format("%d_%s", time,orgfileName);
+			File f = new File(fileUrl+uploadFileName);
+			try {
+				file.transferTo(f);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		    //파일이름저장
+			boardDto.setFileName(uploadFileName);
+		}else {
+			// 기존 파일이름을 그대로 저장시키면 됨. 
+			boardDto.setFileName("");
+		}
+    
+	    //mapper전달
+	    boardMapper.insertBoardReply(boardDto);
+	    boardMapper.insertBoardReplyPlus(boardDto);
+	    return;
+		
+	}
+
+	@Override
+	public void boardDelete(String bid) {
+		boardMapper.deleteBoardDelete(bid);
+		
+	}
 	
 	
 	

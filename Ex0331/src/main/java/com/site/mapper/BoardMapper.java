@@ -28,5 +28,13 @@ public interface BoardMapper {
 	//write
 	void insertBoardWrite(BoardDto boardDto);
 	
+	//update
+	void updateBoardWrite(BoardDto boardDto);
+	
+	//reply
+	void insertBoardReply(BoardDto boardDto);
+	void insertBoardReplyPlus(BoardDto boardDto);
+	void deleteBoardDelete(String bid);
+	
 
 }

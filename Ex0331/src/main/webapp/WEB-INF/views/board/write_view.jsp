@@ -9,22 +9,25 @@
   <title>글쓰기</title>
   <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
-       /* function writeCheck(){
+       function writeCheck(){
     	   alert("성공");
-    	    var form = $('#writeForm')[0];
-    	    // FormData 객체 생성
-    	    var formData = new FormData(form);
+    	   /* if($("#btitle").val()==""){
+    		   alert("타이틀을 꼭 적으셔야 합니다.");
+    		   $("#btitle").focus();
+    		   return false;
+    	   } */
     	   
     	   $.ajax({
-			   url:"./write",
+			   url:"./write1",
 			   type:"post",
 			   enctype:"multipart/form-data",
-			   data: formData,
-		        processData: false,
-		        contentType: false,
-		        cache: false,
+			   data: new FormData($('#writeForm')[0]),
+		       processData: false,
+		       contentType: false,
+		       cache: false,
 			   success:function(data){
-					alert(data.message);
+					alert("게시판 등록이 완료되었습니다.");
+					location.href="./list";
 			   },
 			   error:function(){
 				   alert("에러");
@@ -32,7 +35,7 @@
 		   });
     	   
     	   
-       } */
+       }
     
     </script>
   
@@ -54,19 +57,19 @@
         <tr>
           <th>작성자</th>
           <td>
-            <input type="text" name="bname">
+            <input type="text" name="bname" id="bname">
           </td>
         </tr>
         <tr>
           <th>제목</th>
           <td>
-            <input type="text" name="btitle">
+            <input type="text" name="btitle" id="btitle">
           </td>
         </tr>
         <tr>
           <th>내용</th>
           <td>
-            <textarea name="bcontent" cols="50" rows="10"></textarea>
+            <textarea name="bcontent" id="bcontent" cols="50" rows="10"></textarea>
           </td>
         </tr>
         <tr>
@@ -78,7 +81,7 @@
       </table>
       <hr>
       <div class="button-wrapper">
-        <button type="submit" class="write">작성완료</button>
+        <button type="button" onclick="writeCheck()" class="write">작성완료</button>
         <button type="button" class="cancel" onclick="javascript:location.href='./list'">취소</button>
       </div>
     </form>

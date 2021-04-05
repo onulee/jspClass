@@ -16,7 +16,7 @@
   <script type="text/javascript">
       function delete_check(){
     	  if(confirm("삭제하시겠습니까?")){
-    		  location.href="delete?page=${map.page }&bId=${map.boardDto.bid}";
+    		  location.href="./delete?page=${map.page}&bid=${map.boardDto.bid}&category=${map.category}&search=${map.search}";
     	  }else{
     		  return false; 
     	  }
@@ -67,8 +67,8 @@
 
     <a href="list?category=${map.category }&search=${map.search }&page=${map.page}"><div class="list">목록</div></a>
     <div class="list mouseCursor"  onclick="delete_check()">삭제</div>
-    <a href="bModify_view?category=${map.category }&search=${map.search }&page=${map.page}&bId=${map.boardDto.bid}"><div class="list">수정</div></a>
-    <a href="bReplyView?category=${map.category }&search=${map.search }&page=${map.page}&bId=${map.boardDto.bid}"><div class="list">답글달기</div></a>
+    <a href="modify_view?category=${map.category }&search=${map.search }&page=${map.page}&bid=${map.boardDto.bid}"><div class="list">수정</div></a>
+    <a href="reply_view?category=${map.category }&search=${map.search }&page=${map.page}&bid=${map.boardDto.bid}"><div class="list">답글달기</div></a>
   </section>
 </body>
 </html>

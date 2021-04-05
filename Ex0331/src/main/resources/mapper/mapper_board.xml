@@ -5,6 +5,30 @@
   
 <mapper namespace="com.site.mapper.BoardMapper">
   
+  <!-- delete -->
+  <delete id="deleteBoardDelete" >
+        delete notice_board where bid=#{bid}
+  </delete>
+  
+  
+  <!-- reply -->
+  <insert id="insertBoardReply">
+       <![CDATA[
+        insert into notice_board values(
+		board_seq.nextval,#{bname},#{btitle},#{bcontent},
+		sysdate,0,#{bgroup},#{bstep}+1,#{bindent}+1,#{fileName})
+	   ]]>
+  </insert>
+  <!-- replyPlus -->
+  <update id="insertBoardReplyPlus">
+       <![CDATA[
+        update notice_board set bStep=bStep+1
+        where bGroup=#{bgroup} and bStep>#{bstep}
+	   ]]>
+  </update>
+  
+  
+  
   <!-- content_view -->
   <select id="selectBoardContent_view" resultType="com.site.dto.BoardDto">
         select * from  notice_board where bid=#{bid}
@@ -12,6 +36,16 @@
   <update id="selectUpHit" >
         update notice_board set bhit=bhit+1 where bid=#{bid}
   </update>
+  
+  <!-- update -->
+  <update id="updateBoardWrite">
+       <![CDATA[
+        update notice_board set 
+        btitle=#{btitle},bcontent=#{bcontent},bdate=sysdate,fileName=#{fileName}
+		where bid=#{bid}
+	   ]]>
+  </update>
+  
   
   <!-- insert -->
   <insert id="insertBoardWrite">
@@ -21,6 +55,8 @@
 		sysdate,0,board_seq.currval,0,0,#{fileName})
 	   ]]>
   </insert>
+  
+  
   
   <!-- list 전체리스트 -->
   <select id="selectBoardListAll" resultType="com.site.dto.BoardDto">
@@ -56,6 +92,8 @@
 	  ]]>
   </select>
   
+  
+  
   <!-- 전체리스트 개수 -->
   <select id="listCount" resultType="int">
       select count(*) from notice_board
@@ -76,8 +114,6 @@
       select count(*) from notice_board where bcontent like '%'||#{search}||'%' or btitle like '%'||#{search}||'%'
     ]]>
   </select>
-  
-  
   
   
   
