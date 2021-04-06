@@ -104,11 +104,12 @@ public class BoardController {
      	  boardService.boardWrite(boardDto,file);
 		return "redirect:/board/list";
 	}
+	
 	@RequestMapping("/board/write1")
 	@ResponseBody
 	public String write1(BoardDto boardDto,@RequestPart MultipartFile file) {
 		boardService.boardWrite(boardDto,file);
-		return "redirect:/board/list";
+		return "1111";
 	}
 	
 	@RequestMapping("/board/list")

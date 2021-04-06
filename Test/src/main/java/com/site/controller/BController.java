@@ -1,11 +1,13 @@
 package com.site.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.site.service.BoardService;
@@ -23,6 +25,30 @@ public class BController {
 	@RequestMapping("/index")
 	public String index() {
 		return "index";
+	}
+	@RequestMapping("/event")
+	public String event() {
+		return "event";
+	}
+	
+	@RequestMapping("/event_view")
+	public String event_view() {
+		return "event_view";
+	}
+	@RequestMapping("/event_reply")
+	@ResponseBody
+	public Map<String, Object> event_reply(@RequestParam("replynum") String replynum,
+			@RequestParam("replyType") String replyType) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		String date = sdf.format(System.currentTimeMillis());
+		System.out.println("replynum :"+replynum);
+		map.put("replynum", replynum);
+		map.put("replyType", replyType);
+		map.put("date", date);
+		map.put("name", "홍길동");
+		
+		return map;
 	}
 	
 	@RequestMapping("/testAjax")

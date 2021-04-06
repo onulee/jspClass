@@ -24,6 +24,14 @@ public interface BoardMapper {
 	//content_view
 	BoardDto selectBoardContent_view(String bid);
 	void selectUpHit(String bid);
+	BoardDto selectBoard_pre(String bid);
+	BoardDto selectBoard_next(String bid);
+	BoardDto selectBoard_preTitle(String bid, String search);
+	BoardDto selectBoard_nextTitle(String bid, String search);
+	BoardDto selectBoard_preContent(String bid, String search);
+	BoardDto selectBoard_nextContent(String bid, String search);
+	BoardDto selectBoard_preAll(String bid, String search);
+	BoardDto selectBoard_nextAll(String bid, String search);
 	
 	//write
 	void insertBoardWrite(BoardDto boardDto);

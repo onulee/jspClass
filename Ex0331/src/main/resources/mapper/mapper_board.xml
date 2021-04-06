@@ -36,6 +36,108 @@
   <update id="selectUpHit" >
         update notice_board set bhit=bhit+1 where bid=#{bid}
   </update>
+  <!-- 이전글 데이터 -->
+  <select id="selectBoard_pre" resultType="com.site.dto.BoardDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from notice_board order by bgroup desc, bstep asc) a)
+		where rnum=
+		(select rnum from (select rownum rnum,a.* from
+		(select * from notice_board order by bgroup desc, bstep asc) a) 
+		where bid=#{bid})-1
+	  ]]>
+  </select>
+  <!-- 다음글 데이터 -->
+  <select id="selectBoard_next" resultType="com.site.dto.BoardDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from notice_board order by bgroup desc, bstep asc) a)
+		where rnum=
+		(select rnum from (select rownum rnum,a.* from
+		(select * from notice_board order by bgroup desc, bstep asc) a) 
+		where bid=#{bid})+1
+	  ]]>
+  </select>
+  <!-- 이전글 데이터 - title검색 -->
+  <select id="selectBoard_preTitle" resultType="com.site.dto.BoardDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from notice_board where btitle like '%'||#{search}||'%'
+		order by bGroup desc, bStep asc) a)
+		where rnum=
+		(select rnum from (select rownum rnum,a.* from
+		(select * from notice_board where btitle like '%'||#{search}||'%'
+		order by bGroup desc, bStep asc) a)
+		where bid=#{bid})-1
+	  ]]>
+  </select>
+  <!-- 다음글 데이터 - title검색 -->
+  <select id="selectBoard_nextTitle" resultType="com.site.dto.BoardDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from notice_board where btitle like '%'||#{search}||'%'
+		order by bGroup desc, bStep asc) a)
+		where rnum=
+		(select rnum from (select rownum rnum,a.* from
+		(select * from notice_board where btitle like '%'||#{search}||'%'
+		order by bGroup desc, bStep asc) a)
+		where bid=#{bid})+1
+	  ]]>
+  </select>
+  <!-- 이전글 데이터 - content검색 -->
+  <select id="selectBoard_preContent" resultType="com.site.dto.BoardDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from notice_board where bcontent like '%'||#{search}||'%'
+		order by bGroup desc, bStep asc) a)
+		where rnum=
+		(select rnum from (select rownum rnum,a.* from
+		(select * from notice_board where bcontent like '%'||#{search}||'%'
+		order by bGroup desc, bStep asc) a)
+		where bid=#{bid})-1
+	  ]]>
+  </select>
+  <!-- 다음글 데이터 - content검색 -->
+  <select id="selectBoard_nextContent" resultType="com.site.dto.BoardDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from notice_board where bcontent like '%'||#{search}||'%'
+		order by bGroup desc, bStep asc) a)
+		where rnum=
+		(select rnum from (select rownum rnum,a.* from
+		(select * from notice_board where bcontent like '%'||#{search}||'%'
+		order by bGroup desc, bStep asc) a)
+		where bid=#{bid})+1
+	  ]]>
+  </select>
+  <!-- 이전글 데이터 - all검색 -->
+  <select id="selectBoard_preAll" resultType="com.site.dto.BoardDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from notice_board where bcontent like '%'||#{search}||'%' or btitle like '%'||#{search}||'%'
+		order by bGroup desc, bStep asc) a)
+		where rnum=
+		(select rnum from (select rownum rnum,a.* from
+		(select * from notice_board where bcontent like '%'||#{search}||'%' or btitle like '%'||#{search}||'%' 
+		order by bGroup desc, bStep asc) a)
+		where bid=#{bid})-1
+	  ]]>
+  </select>
+  <!-- 다음글 데이터 - all검색 -->
+  <select id="selectBoard_nextAll" resultType="com.site.dto.BoardDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from notice_board where bcontent like '%'||#{search}||'%' or btitle like '%'||#{search}||'%'
+		order by bGroup desc, bStep asc) a)
+		where rnum=
+		(select rnum from (select rownum rnum,a.* from
+		(select * from notice_board where bcontent like '%'||#{search}||'%' or btitle like '%'||#{search}||'%'
+		order by bGroup desc, bStep asc) a)
+		where bid=#{bid})+1
+	  ]]>
+  </select>
+  
+  
   
   <!-- update -->
   <update id="updateBoardWrite">
