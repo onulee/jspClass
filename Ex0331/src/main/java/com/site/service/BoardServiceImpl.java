@@ -81,8 +81,7 @@ public class BoardServiceImpl implements BoardService {
 			preDto = boardMapper.selectBoard_preAll(bid,search);
 			nextDto = boardMapper.selectBoard_nextAll(bid,search);
 		}
-		
-		
+				
 		map.put("boardDto", boardDto);
 		map.put("preDto", preDto);
 		map.put("nextDto", nextDto);

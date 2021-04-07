@@ -85,6 +85,10 @@ $(document).ready(function() {
         clearTimeout(msietimer);
      }
      
+    
+     
+     
+     //댓글 달기 write
      function replyWrite_check(){
     	 alert("댓글 등록테스트");
     	 
@@ -98,12 +102,12 @@ $(document).ready(function() {
 				   alert("받아온 데이터 테스트 : "+data.replynum);
 			        
 			       var html='';
-			        html += '<ul>';
+			        html += '<ul id="'+data.comNo+'">';
 		            html += '<li class="name">'+data.name;
 		            html += '<span>['+data.date+']</span></li>';
 		            html += '<li class="txt">'+data.replyType+'</li>';
 		            html += '<li class="btn">';
-		            html += '<a href="#" class="rebtn">수정</a>';
+		            html += '<a href="#" onclick="replyupdate_check('+data.comNo+')" class="rebtn">수정</a>';
 		            html += '<a href="#" class="rebtn">삭제</a>';
 		            html += '</li>';
 		            //....
@@ -130,11 +134,11 @@ $(document).ready(function() {
 			   error:function(){
 				   alert("에러");
 			   }
-			   
-			   
-			   
 		   }); 
      }
+     
+    
+     
 </script>
 
 <div id="allwrap">
@@ -280,7 +284,6 @@ $(document).ready(function() {
 						</div>
 					</div>
 
-
 					<!-- 이전다음글 -->
 					<div class="pnDiv web">
 						<table summary="이전다음글을 선택하여 보실 수 있습니다." class="preNext" border="1" cellspacing="0">
@@ -308,6 +311,9 @@ $(document).ready(function() {
 					<!-- //이전다음글 -->
 
 
+
+
+
 					<!-- 댓글-->
 					<div class="replyWrite">
 						<ul>
@@ -316,7 +322,9 @@ $(document).ready(function() {
 								<p class="password">비밀번호&nbsp;&nbsp;<input type="password" name="replynum" class="replynum" /></p>
 								<textarea class="replyType" name="replyType"></textarea>
 							</li>
-							<li class="btn" onclick="replyWrite_check()"><a href="#" class="replyBtn">등록</a></li>
+							<li class="btn" onclick="replyWrite_check()">
+							  <a href="#" class="replyBtn">등록</a>
+							</li>
 						</ul>
 						<p class="ntic">※ 비밀번호를 입력하시면 댓글이 비밀글로 등록 됩니다.</p>
 					</div>

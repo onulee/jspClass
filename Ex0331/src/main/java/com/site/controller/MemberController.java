@@ -42,6 +42,7 @@ public class MemberController {
 			HttpSession session = request.getSession();
 			session.setAttribute("session_flag", "success");
 			session.setAttribute("session_nName", ((MemberDto) map.get("memberDto")).getNname());
+			session.setAttribute("session_id", ((MemberDto) map.get("memberDto")).getId());
 		}
 		map.put("loginCheck", (int)map.get("loginCheck"));
 		return map;

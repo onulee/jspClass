@@ -35,6 +35,8 @@ public class BController {
 	public String event_view() {
 		return "event_view";
 	}
+	
+	//댓글달기 
 	@RequestMapping("/event_reply")
 	@ResponseBody
 	public Map<String, Object> event_reply(@RequestParam("replynum") String replynum,
@@ -45,6 +47,7 @@ public class BController {
 		System.out.println("replynum :"+replynum);
 		map.put("replynum", replynum);
 		map.put("replyType", replyType);
+		map.put("comNo", 1);
 		map.put("date", date);
 		map.put("name", "홍길동");
 		

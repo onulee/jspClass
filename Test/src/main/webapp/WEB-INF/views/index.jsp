@@ -12,6 +12,7 @@
 	  <c:choose>
 	    <c:when test="${session_flag==null || session_flag=='fail' }">
 	        <h3>로그인이 되어 있지 않습니다.</h3>
+	        <li><a href="./event">이벤트</a></li>
 	        <li><a href="../member/login">로그인</a></li>
 	        <li><a href="join.do">회원가입</a></li>
 	    </c:when>
