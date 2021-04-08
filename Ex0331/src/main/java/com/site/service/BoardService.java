@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.site.dto.BoardDto;
+import com.site.dto.CommentDto;
 
 public interface BoardService {
 
@@ -21,5 +22,6 @@ public interface BoardService {
 	void boardReply(BoardDto boardDto, MultipartFile file);
 
 	void boardDelete(String bid);
+
 
 }

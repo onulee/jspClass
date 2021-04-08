@@ -16,8 +16,7 @@
 	        <li><a href="join.do">회원가입</a></li>
 	    </c:when>
 	    <c:otherwise>
-	        <h3>${session_nName} 님 접속을 환영합니다.</h3>
-	        <h3>${session_id} 님 접속을 환영합니다.</h3>
+	        <h3>${session_nName}(${session_id}) 님 접속을 환영합니다.</h3>
 	        <li><a href="../event/event">이벤트</a></li>
 		    <li><a href="../member/logout">로그아웃</a></li>
 		    <li><a href="modify.do">회원정보수정</a></li>

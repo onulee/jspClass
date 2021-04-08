@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CommentDto {
 
-	int commentNo;
-	int bid;    //BoardDto
-	String id;  //MemberDto
-	String commentPw;
-	String commentContent;
-	Timestamp commentDate;
+	private int commentNo;
+	private int bid;    //BoardDto
+	private String id;  //MemberDto
+	private String commentPw;
+	private String commentContent;
+	private Timestamp commentDate;
 	
 }

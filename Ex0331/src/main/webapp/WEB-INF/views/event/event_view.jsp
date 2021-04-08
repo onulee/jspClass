@@ -52,24 +52,25 @@
  function commentWrite(){
 	 alert("등록 버튼 클릭");
 	 var html="";
-	 var id = "${session_id}";
+	 var id = "${session_id}";  //섹션 아이디 적용
 	 
 	 $.ajax({
 		url:"/event/commentWrite_check",
 		type:"post",
 		data:{
-			"id":id,"commentPw":$("#commentPw").val(),"commentContent":$("#commentContent").val()
+			"bid":149,"id":id,
+			"commentPw":$("#commentPw").val(),"commentContent":$("#commentContent").val()
 		},
-		success:function(data){
+		success:function(data){   //data.dto.id
 			
-			alert("data : "+data.id);
+			alert("data : "+data.dto.id);
 			
-			 html +='<ul id="'+data.commentNo+'">';
-			 html +='<li class="name"> '+data.id+'<span>[ '+data.commentDate+' ]</span></li>';
-			 html +='<li class="txt">'+data.commentContent+'</li>';
+			 html +='<ul id="'+data.dto.commentNo+'">';
+			 html +='<li class="name"> '+data.dto.id+'<span>[ '+data.dto.commentDate+' ]</span></li>';
+			 html +='<li class="txt">'+data.dto.commentContent+'</li>';
 			 html +='<li class="btn">';
 			 html +='<a href="#" class="rebtn"';
-			 html +='onclick="commentUpdate('+data.commentNo+',\''+data.id+'\',\''+data.commentContent+'\',\''+data.commentDate+'\')">';
+			 html +='onclick="commentUpdate('+data.dto.commentNo+',\''+data.dto.id+'\',\''+data.dto.commentContent+'\',\''+data.dto.commentDate+'\')">';
 			 
 			 html +='수정</a>';
 			 html +='<a href="#" class="rebtn">삭제</a>';
