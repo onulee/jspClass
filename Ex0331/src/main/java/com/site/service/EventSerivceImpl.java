@@ -58,4 +58,11 @@ public class EventSerivceImpl implements EventService {
 		
 	}
 
+	@Override
+	public void commentDelete(int commentNo) {
+		// 댓글 insert
+		eventMapper.deleteComment(commentNo);
+		return;
+	}
+
 }

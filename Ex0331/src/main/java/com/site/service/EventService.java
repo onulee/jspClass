@@ -14,4 +14,6 @@ public interface EventService {
 
 	CommentDto commentUpdate_check(CommentDto commentDto);
 
+	void commentDelete(int commentNo);
+
 }

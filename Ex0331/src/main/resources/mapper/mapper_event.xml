@@ -18,11 +18,14 @@
         SELECT * FROM commentBoard where commentNo=#{commentNo}
   </select>
   
-  <insert id="updateCommentUpdate" >
+  <update id="updateCommentUpdate" >
         update commentBoard set commentContent=#{commentContent},
         commentDate=sysdate where commentNo=#{commentNo}
-  </insert>
+  </update>
   
+  <delete id="deleteComment" >
+        delete commentBoard where commentNo=#{commentNo}
+  </delete>
   
   
   

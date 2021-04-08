@@ -31,32 +31,80 @@
  <script type="text/javascript">
  var comment_flag=0;
  
+ /* 댓글삭제 체크 */
+ function commentDelete(commentNo){
+	 alert("삭제 버튼 클릭");
+	 if(confirm("삭제하시겠습니까?")){
+		 $.ajax({
+				url:"/event/commentDelete",
+				type:"post",
+				data:{
+					"commentNo":commentNo
+				},
+				success:function(data){   
+				     alert(data.msg);
+					 // 해당 태그 삭제
+				     $('#'+commentNo).remove();
+				},
+				error:function(){
+					alert("에러");
+				}
+			 }); 
+	 }else{
+		 return false; 
+	 }
+ }
+ 
+ /* 댓글수정 체크 */
+ function commentUpdate_check(commentNo,id){
+	 alert("수정 저장 버튼 클릭");
+	 alert(commentContent);
+	 var html="";
+	 
+	 $.ajax({
+		url:"/event/commentUpdate_check",
+		type:"post",
+		data:{
+			"commentNo":commentNo,"id":id,"commentContent":$("#commentContentUpdate").val()
+		},
+		success:function(data){   //data.dto.id
+		     /* 자바스크립트 날짜 포맷 변경 함수 : 상단에 moment날짜함수 선언을 해야 함 */
+			 html +='<li class="name"> '+data.dto.id+'<span>&nbsp;&nbsp;[ '+moment(data.dto.commentDate).format("YYYY-MM-DD HH:mm:ss")+' ]</span></li>';
+			 html +='<li class="txt">'+data.dto.commentContent+'</li>';
+			 html +='<li class="btn">';
+			 html +='<a href="#" class="rebtn"';
+			 html +='onclick="commentUpdate('+data.dto.commentNo+',\''+data.dto.id+'\',\''+data.dto.commentContent+'\',\''+data.dto.commentDate+'\')">';
+			 html +='수정</a>';
+			 html +='<a href="#" class="rebtn" onclick="commentDelete('+data.dto.commentNo+')">삭제</a>';
+			 html +='</li>';
+			 
+			 $('#'+commentNo).html(html); 
+			
+		},
+		error:function(){
+			alert("에러");
+		}
+	 });  
+	 
+ }
+ 
+ 
  
  /* 댓글수정 */
  function commentUpdate(commentNo,id,commentContent,commentDate){
 	 alert("수정 버튼 클릭");
-	 alert("commentNo : "+commentNo);
 	 
 	 var html="";
 	 
 	 html +='<li class="name">'+id+' <span>&nbsp;&nbsp;['+moment(commentDate).format("YYYY-MM-DD HH:mm:ss")+']</span></li>';
-	 html +='<li class="txt"><textarea class="replyType">'+commentContent+'</textarea></li>';
+	 html +='<li class="txt"><textarea class="replyType" id="commentContentUpdate" name="commentContentUpdate">'+commentContent+'</textarea></li>';
 	 html +='<li class="btn">';
 	 html +='<a href="#" class="rebtn" ';
-	 html +='onclick="commentUpdate_check()">';
+	 html +='onclick="commentUpdate_check('+commentNo+',\''+id+'\')">';
 	 html +='저장</a>';
 	 html +='<a href="#" class="rebtn">취소</a>';
 	 html +='</li>';
-	 
-	 /* var html="";
-	 html +='<li class="name">'+id+'<span>&nbsp;&nbsp;['+moment(commentDate).format("YYYY-MM-DD HH:mm:ss")+']</span></li>';
-	 html +='<li class="txt"><textarea class="replyType">'+commentContent+'</textarea></li>';
-	 html +='<li class="btn">';
-	 html +='<a href="#" class="rebtn"';
-	 html +='onclick="commentUpdate_check('+data.dto.commentNo+',\''+data.dto.id+'\',\''+data.dto.commentContent+'\')">';
-	 html +='저장</a>';
-	 html +='<a href="#" class="rebtn">취소</a>';
-	 html +='</li>'; */
+	
 	 
 	 $('#'+commentNo).html(html); 
 	 
@@ -78,18 +126,16 @@
 		success:function(data){   //data.dto.id
 			
 			alert("data.id : "+data.dto.id);
-		    /* 자바스크립트 날짜 포맷 변경 함수 : 상단에 moment날짜함수 선언을 해야 함 */
-			alert("commentDate : "+moment(data.dto.commentDate).format("YYYY-MM-DD HH:mm:ss"));
 			
 			 html +='<ul id="'+data.dto.commentNo+'">';
+		     /* 자바스크립트 날짜 포맷 변경 함수 : 상단에 moment날짜함수 선언을 해야 함 */
 			 html +='<li class="name"> '+data.dto.id+'<span>&nbsp;&nbsp;[ '+moment(data.dto.commentDate).format("YYYY-MM-DD HH:mm:ss")+' ]</span></li>';
 			 html +='<li class="txt">'+data.dto.commentContent+'</li>';
 			 html +='<li class="btn">';
 			 html +='<a href="#" class="rebtn"';
 			 html +='onclick="commentUpdate('+data.dto.commentNo+',\''+data.dto.id+'\',\''+data.dto.commentContent+'\',\''+data.dto.commentDate+'\')">';
-			 
 			 html +='수정</a>';
-			 html +='<a href="#" class="rebtn">삭제</a>';
+			 html +='<a href="#" class="rebtn" onclick="commentDelete('+data.dto.commentNo+')">삭제</a>';
 			 html +='</li>';
 			 html +='</ul>';
 			
@@ -103,8 +149,6 @@
 		}
 		 
 	 });  
-	 
-	 
  }
  
  
@@ -304,15 +348,7 @@
 
                     <!-- 댓글이 추가되는 부분 -->
 					<div class="replyBox">
-						<!-- <ul>
-							<li class="name">jjabcde <span>[2014-03-04&nbsp;&nbsp;15:01:59]</span></li>
-							<li class="txt"><textarea class="replyType"></textarea></li>
-							<li class="btn">
-								<a href="#" class="rebtn">저장</a>
-								<a href="#" class="rebtn">취소</a>
-							</li>
-						</ul> -->
-						
+												
                         <!-- 댓글 반복 -->
                         <c:forEach var="dto" items="${map.list }">
 							<ul id="${dto.commentNo}">
@@ -323,7 +359,7 @@
 								    <!-- if -->
 								    <c:if test="${session_id eq dto.id}">
 										<a href="#" class="rebtn" onclick="commentUpdate(${dto.commentNo},'${dto.id}','${dto.commentContent }','${dto.commentDate }')">수정</a>
-										<a href="#" class="rebtn">삭제</a>
+										<a href="#" class="rebtn" onclick="commentDelete(${dto.commentNo})">삭제</a>
 								    </c:if>
 								
 								</li>

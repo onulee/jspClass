@@ -19,4 +19,6 @@ public interface EventMapper {
 
 	void updateCommentUpdate(CommentDto commentDto);
 
+	void deleteComment(int commentNo);
+
 }
