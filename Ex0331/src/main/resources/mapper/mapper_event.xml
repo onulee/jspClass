@@ -5,7 +5,7 @@
   
 <mapper namespace="com.site.mapper.EventMapper">
   
-  <!-- reply -->
+  <!-- comment 등록 -->
   <insert id="insertCommentWrite">
         <selectKey resultType="int" keyProperty="commentNo" order="BEFORE" >
 	      select com_seq.nextval from dual
@@ -13,9 +13,26 @@
         insert into commentBoard values(
 		#{commentNo},#{bid},#{id},#{commentPw},#{commentContent},sysdate)
   </insert>
-  
+  <!-- comment 저장된 1개 읽어오기 -->
   <select id="selectCommentWrite" resultType="com.site.dto.CommentDto">
         SELECT * FROM commentBoard where commentNo=#{commentNo}
+  </select>
+  
+  <insert id="updateCommentUpdate" >
+        update commentBoard set commentContent=#{commentContent},
+        commentDate=sysdate where commentNo=#{commentNo}
+  </insert>
+  
+  
+  
+  
+  <!-- comment 전체 읽기 -->
+  <select id="selectEvent_CommentList" resultType="com.site.dto.CommentDto">
+        SELECT * FROM commentBoard where bid=#{bid}
+  </select>
+  <!-- comment 개수 -->
+  <select id="selectEvent_CommentCount" resultType="int">
+        SELECT count(*) FROM commentBoard where bid=#{bid}
   </select>
   
   

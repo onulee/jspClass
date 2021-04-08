@@ -23,28 +23,42 @@
 <script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="../js/idangerous.swiper-2.1.min.js"></script>
 <script type="text/javascript" src="../js/jquery.anchor.js"></script>
+<!-- 날짜 포맷함수 -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
 <body>
 
  <script type="text/javascript">
+ var comment_flag=0;
+ 
  
  /* 댓글수정 */
  function commentUpdate(commentNo,id,commentContent,commentDate){
 	 alert("수정 버튼 클릭");
 	 alert("commentNo : "+commentNo);
-	 alert("id : "+id);
-	 alert("commentContent : "+commentContent);
-	 alert("commentDate : "+commentDate);
+	 
 	 var html="";
-	 html +='<li class="name">'+id+'<span>['+commentDate+']</span></li>';
+	 
+	 html +='<li class="name">'+id+' <span>&nbsp;&nbsp;['+moment(commentDate).format("YYYY-MM-DD HH:mm:ss")+']</span></li>';
 	 html +='<li class="txt"><textarea class="replyType">'+commentContent+'</textarea></li>';
 	 html +='<li class="btn">';
-	 html +='<a href="#" class="rebtn">저장</a>';
+	 html +='<a href="#" class="rebtn" ';
+	 html +='onclick="commentUpdate_check()">';
+	 html +='저장</a>';
 	 html +='<a href="#" class="rebtn">취소</a>';
 	 html +='</li>';
-	
-	 $('#1').html(html); 
 	 
+	 /* var html="";
+	 html +='<li class="name">'+id+'<span>&nbsp;&nbsp;['+moment(commentDate).format("YYYY-MM-DD HH:mm:ss")+']</span></li>';
+	 html +='<li class="txt"><textarea class="replyType">'+commentContent+'</textarea></li>';
+	 html +='<li class="btn">';
+	 html +='<a href="#" class="rebtn"';
+	 html +='onclick="commentUpdate_check('+data.dto.commentNo+',\''+data.dto.id+'\',\''+data.dto.commentContent+'\')">';
+	 html +='저장</a>';
+	 html +='<a href="#" class="rebtn">취소</a>';
+	 html +='</li>'; */
+	 
+	 $('#'+commentNo).html(html); 
 	 
  }
  
@@ -63,10 +77,12 @@
 		},
 		success:function(data){   //data.dto.id
 			
-			alert("data : "+data.dto.id);
+			alert("data.id : "+data.dto.id);
+		    /* 자바스크립트 날짜 포맷 변경 함수 : 상단에 moment날짜함수 선언을 해야 함 */
+			alert("commentDate : "+moment(data.dto.commentDate).format("YYYY-MM-DD HH:mm:ss"));
 			
 			 html +='<ul id="'+data.dto.commentNo+'">';
-			 html +='<li class="name"> '+data.dto.id+'<span>[ '+data.dto.commentDate+' ]</span></li>';
+			 html +='<li class="name"> '+data.dto.id+'<span>&nbsp;&nbsp;[ '+moment(data.dto.commentDate).format("YYYY-MM-DD HH:mm:ss")+' ]</span></li>';
 			 html +='<li class="txt">'+data.dto.commentContent+'</li>';
 			 html +='<li class="btn">';
 			 html +='<a href="#" class="rebtn"';
@@ -270,14 +286,11 @@
 
 
 
-
-
-
 					<!-- 댓글-->
 					<div class="replyWrite">
 						<ul>
 							<li class="in">
-								<p class="txt">총 <span class="orange">3</span> 개의 댓글이 달려있습니다.</p>
+								<p class="txt">총 <span class="orange">${map.count}</span> 개의 댓글이 달려있습니다.</p>
 								<p class="password">비밀번호&nbsp;&nbsp;<input type="password" class="replynum" id="commentPw" name="commentPw"/></p>
 								<textarea class="replyType" id="commentContent" name="commentContent"></textarea>
 							</li>
@@ -285,10 +298,6 @@
 						</ul>
 						<p class="ntic">※ 비밀번호를 입력하시면 댓글이 비밀글로 등록 됩니다.</p>
 					</div>
-
-
-
-
 
 
 
@@ -303,8 +312,26 @@
 								<a href="#" class="rebtn">취소</a>
 							</li>
 						</ul> -->
-                        <!-- 댓글이 여기에 추가 -->
-						<ul>
+						
+                        <!-- 댓글 반복 -->
+                        <c:forEach var="dto" items="${map.list }">
+							<ul id="${dto.commentNo}">
+								<li class="name">${dto.id} <span>&nbsp;&nbsp;[${dto.commentDate }]</span></li>
+								<li class="txt">${dto.commentContent } </li>
+								<li class="btn">
+								    
+								    <!-- if -->
+								    <c:if test="${session_id eq dto.id}">
+										<a href="#" class="rebtn" onclick="commentUpdate(${dto.commentNo},'${dto.id}','${dto.commentContent }','${dto.commentDate }')">수정</a>
+										<a href="#" class="rebtn">삭제</a>
+								    </c:if>
+								
+								</li>
+							</ul>
+					    </c:forEach>
+                        
+                        <!-- 샘플데이터 -->
+                        <ul>
 							<li class="name">jjabcde <span>[2014-03-04&nbsp;&nbsp;15:01:59]</span></li>
 							<li class="txt">대박!!! 이거 저한테 완전 필요한 이벤트였어요!!</li>
 							<li class="btn">
@@ -321,6 +348,8 @@
 						</ul>
 					</div>
 					<!-- //댓글 -->
+					
+      
 
 
 					<!-- Btn Area -->
