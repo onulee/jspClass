@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.io.FilenameUtils;
@@ -105,11 +106,37 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
+	//파일업로드 insert
 	@RequestMapping("/board/write1")
 	@ResponseBody
 	public String write1(BoardDto boardDto,@RequestPart MultipartFile file) {
 		boardService.boardWrite(boardDto,file);
 		return "1111";
+	}
+	
+	//다중파일 업로드
+	public String file_insert(@RequestParam("files") List<MultipartFile> files) throws Exception {
+		//html 파일 첨부이름 동일해야 함.
+		//<input type="file" name="files"><br>
+        //<input type="file" name="files"><br>
+		
+		//파일 저장 위치
+		String fileUrl = "C:/GitSave/jspClass/Test/src/main/resources/static/upload/";
+		//파일출력
+		String fileN ="";
+		
+		// 파일 업로드(여러개) 처리 부분
+	    for(MultipartFile file : files) {
+	    	//원본파일이름
+			String orgfileName = file.getOriginalFilename();
+			long time = System.currentTimeMillis();
+			String uploadFileName = String.format("%d_%s", time,orgfileName);
+			fileN += uploadFileName;
+			System.out.println("uploadFileName파일이름 : "+uploadFileName);
+			File f = new File(fileUrl+uploadFileName);
+	        file.transferTo(f);
+	    }
+		return fileN;
 	}
 	
 	@RequestMapping("/board/list")

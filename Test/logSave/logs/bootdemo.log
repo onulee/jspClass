@@ -1,0 +1,293 @@
+2021-04-15 10:48:08 INFO Starting TestApplication using Java 11.0.9 on HOME-PC with PID 5688 (C:\GitSave\jspClass\Test\target\classes started by 3실습실 in C:\GitSave\jspClass\Test)
+2021-04-15 10:48:08 INFO No active profile set, falling back to default profiles: default
+2021-04-15 10:48:08 INFO Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-15 10:48:08 INFO For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-15 10:48:09 INFO Tomcat initialized with port(s): 8000 (http)
+2021-04-15 10:48:09 INFO Initializing ProtocolHandler ["http-nio-8000"]
+2021-04-15 10:48:09 INFO Starting service [Tomcat]
+2021-04-15 10:48:09 INFO Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-15 10:48:10 INFO At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-15 10:48:10 INFO Initializing Spring embedded WebApplicationContext
+2021-04-15 10:48:10 INFO Root WebApplicationContext: initialization completed in 1455 ms
+2021-04-15 10:48:10 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-15 10:48:10 INFO Adding welcome page template: index
+2021-04-15 10:48:10 INFO LiveReload server is running on port 35729
+2021-04-15 10:48:10 INFO Starting ProtocolHandler ["http-nio-8000"]
+2021-04-15 10:48:10 INFO Tomcat started on port(s): 8000 (http) with context path ''
+2021-04-15 10:48:10 INFO Started TestApplication in 2.489 seconds (JVM running for 4.416)
+2021-04-15 10:48:18 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-15 10:48:18 INFO Initializing Servlet 'dispatcherServlet'
+2021-04-15 10:48:18 INFO Completed initialization in 1 ms
+2021-04-15 10:48:18 INFO 로그를 찍어 봅니다.
+2021-04-15 10:48:18 ERROR Hello Error level log
+2021-04-15 10:48:51 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-15 10:48:51 INFO Starting TestApplication using Java 11.0.9 on HOME-PC with PID 5688 (C:\GitSave\jspClass\Test\target\classes started by 3실습실 in C:\GitSave\jspClass\Test)
+2021-04-15 10:48:51 INFO No active profile set, falling back to default profiles: default
+2021-04-15 10:48:52 INFO Tomcat initialized with port(s): 8000 (http)
+2021-04-15 10:48:52 INFO Initializing ProtocolHandler ["http-nio-8000"]
+2021-04-15 10:48:52 INFO Starting service [Tomcat]
+2021-04-15 10:48:52 INFO Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-15 10:48:52 INFO At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-15 10:48:52 INFO Initializing Spring embedded WebApplicationContext
+2021-04-15 10:48:52 INFO Root WebApplicationContext: initialization completed in 338 ms
+2021-04-15 10:48:52 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-15 10:48:52 INFO Adding welcome page template: index
+2021-04-15 10:48:52 INFO LiveReload server is running on port 35729
+2021-04-15 10:48:52 INFO Starting ProtocolHandler ["http-nio-8000"]
+2021-04-15 10:48:52 INFO Tomcat started on port(s): 8000 (http) with context path ''
+2021-04-15 10:48:52 INFO Started TestApplication in 0.523 seconds (JVM running for 46.095)
+2021-04-15 10:48:52 INFO Condition evaluation unchanged
+2021-04-15 10:48:56 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-15 10:48:56 INFO Initializing Servlet 'dispatcherServlet'
+2021-04-15 10:48:56 INFO Completed initialization in 0 ms
+2021-04-15 11:17:12 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:17:12 INFO Starting TestApplication using Java 11.0.9 on HOME-PC with PID 5688 (C:\GitSave\jspClass\Test\target\classes started by 3실습실 in C:\GitSave\jspClass\Test)
+2021-04-15 11:17:12 INFO No active profile set, falling back to default profiles: default
+2021-04-15 11:17:12 INFO Tomcat initialized with port(s): 8000 (http)
+2021-04-15 11:17:12 INFO Initializing ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:17:12 INFO Starting service [Tomcat]
+2021-04-15 11:17:12 INFO Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-15 11:17:12 INFO At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-15 11:17:12 INFO Initializing Spring embedded WebApplicationContext
+2021-04-15 11:17:12 INFO Root WebApplicationContext: initialization completed in 305 ms
+2021-04-15 11:17:12 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:17:12 INFO Adding welcome page template: index
+2021-04-15 11:17:12 INFO LiveReload server is running on port 35729
+2021-04-15 11:17:12 INFO Starting ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:17:12 INFO Tomcat started on port(s): 8000 (http) with context path ''
+2021-04-15 11:17:12 INFO Started TestApplication in 0.468 seconds (JVM running for 1746.68)
+2021-04-15 11:17:12 INFO Condition evaluation unchanged
+2021-04-15 11:19:07 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:19:07 INFO Starting TestApplication using Java 11.0.9 on HOME-PC with PID 5688 (C:\GitSave\jspClass\Test\target\classes started by 3실습실 in C:\GitSave\jspClass\Test)
+2021-04-15 11:19:07 INFO No active profile set, falling back to default profiles: default
+2021-04-15 11:19:08 INFO Tomcat initialized with port(s): 8000 (http)
+2021-04-15 11:19:08 INFO Initializing ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:19:08 INFO Starting service [Tomcat]
+2021-04-15 11:19:08 INFO Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-15 11:19:08 INFO At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-15 11:19:08 INFO Initializing Spring embedded WebApplicationContext
+2021-04-15 11:19:08 INFO Root WebApplicationContext: initialization completed in 331 ms
+2021-04-15 11:19:08 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:19:08 INFO Adding welcome page template: index
+2021-04-15 11:19:08 INFO LiveReload server is running on port 35729
+2021-04-15 11:19:08 INFO Starting ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:19:08 INFO Tomcat started on port(s): 8000 (http) with context path ''
+2021-04-15 11:19:08 INFO Started TestApplication in 0.52 seconds (JVM running for 1861.955)
+2021-04-15 11:19:08 INFO Condition evaluation unchanged
+2021-04-15 11:19:09 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:19:09 INFO Starting TestApplication using Java 11.0.9 on HOME-PC with PID 5688 (C:\GitSave\jspClass\Test\target\classes started by 3실습실 in C:\GitSave\jspClass\Test)
+2021-04-15 11:19:09 INFO No active profile set, falling back to default profiles: default
+2021-04-15 11:19:10 INFO Tomcat initialized with port(s): 8000 (http)
+2021-04-15 11:19:10 INFO Initializing ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:19:10 INFO Starting service [Tomcat]
+2021-04-15 11:19:10 INFO Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-15 11:19:10 INFO At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-15 11:19:10 INFO Initializing Spring embedded WebApplicationContext
+2021-04-15 11:19:10 INFO Root WebApplicationContext: initialization completed in 279 ms
+2021-04-15 11:19:10 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:19:10 INFO Adding welcome page template: index
+2021-04-15 11:19:10 INFO LiveReload server is running on port 35729
+2021-04-15 11:19:10 INFO Starting ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:19:10 INFO Tomcat started on port(s): 8000 (http) with context path ''
+2021-04-15 11:19:10 INFO Started TestApplication in 0.421 seconds (JVM running for 1863.944)
+2021-04-15 11:19:10 INFO Condition evaluation unchanged
+2021-04-15 11:23:04 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:23:04 INFO Starting TestApplication using Java 11.0.9 on HOME-PC with PID 5688 (C:\GitSave\jspClass\Test\target\classes started by 3실습실 in C:\GitSave\jspClass\Test)
+2021-04-15 11:23:04 INFO No active profile set, falling back to default profiles: default
+2021-04-15 11:23:04 INFO Tomcat initialized with port(s): 8000 (http)
+2021-04-15 11:23:04 INFO Initializing ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:23:04 INFO Starting service [Tomcat]
+2021-04-15 11:23:04 INFO Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-15 11:23:04 INFO At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-15 11:23:04 INFO Initializing Spring embedded WebApplicationContext
+2021-04-15 11:23:04 INFO Root WebApplicationContext: initialization completed in 279 ms
+2021-04-15 11:23:04 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:23:04 INFO Adding welcome page template: index
+2021-04-15 11:23:04 INFO LiveReload server is running on port 35729
+2021-04-15 11:23:04 INFO Starting ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:23:04 INFO Tomcat started on port(s): 8000 (http) with context path ''
+2021-04-15 11:23:04 INFO Started TestApplication in 0.418 seconds (JVM running for 2098.445)
+2021-04-15 11:23:04 INFO Condition evaluation unchanged
+2021-04-15 11:35:05 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:35:05 INFO Starting TestApplication using Java 11.0.9 on HOME-PC with PID 5688 (C:\GitSave\jspClass\Test\target\classes started by 3실습실 in C:\GitSave\jspClass\Test)
+2021-04-15 11:35:05 INFO No active profile set, falling back to default profiles: default
+2021-04-15 11:35:05 INFO Tomcat initialized with port(s): 8000 (http)
+2021-04-15 11:35:05 INFO Initializing ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:35:05 INFO Starting service [Tomcat]
+2021-04-15 11:35:05 INFO Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-15 11:35:05 INFO At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-15 11:35:05 INFO Initializing Spring embedded WebApplicationContext
+2021-04-15 11:35:05 INFO Root WebApplicationContext: initialization completed in 273 ms
+2021-04-15 11:35:05 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:35:05 INFO Adding welcome page template: index
+2021-04-15 11:35:05 INFO LiveReload server is running on port 35729
+2021-04-15 11:35:05 INFO Starting ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:35:05 INFO Tomcat started on port(s): 8000 (http) with context path ''
+2021-04-15 11:35:05 INFO Started TestApplication in 0.413 seconds (JVM running for 2819.269)
+2021-04-15 11:35:05 INFO Condition evaluation unchanged
+2021-04-15 11:35:36 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:35:36 INFO Starting TestApplication using Java 11.0.9 on HOME-PC with PID 5688 (C:\GitSave\jspClass\Test\target\classes started by 3실습실 in C:\GitSave\jspClass\Test)
+2021-04-15 11:35:36 INFO No active profile set, falling back to default profiles: default
+2021-04-15 11:35:36 INFO Tomcat initialized with port(s): 8000 (http)
+2021-04-15 11:35:36 INFO Initializing ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:35:36 INFO Starting service [Tomcat]
+2021-04-15 11:35:36 INFO Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-15 11:35:36 INFO At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-15 11:35:36 INFO Initializing Spring embedded WebApplicationContext
+2021-04-15 11:35:36 INFO Root WebApplicationContext: initialization completed in 283 ms
+2021-04-15 11:35:36 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:35:36 INFO Adding welcome page template: index
+2021-04-15 11:35:36 INFO LiveReload server is running on port 35729
+2021-04-15 11:35:36 INFO Starting ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:35:36 INFO Tomcat started on port(s): 8000 (http) with context path ''
+2021-04-15 11:35:36 INFO Started TestApplication in 0.426 seconds (JVM running for 2850.329)
+2021-04-15 11:35:36 INFO Condition evaluation unchanged
+2021-04-15 11:35:59 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:36:00 INFO Starting TestApplication using Java 11.0.9 on HOME-PC with PID 5688 (C:\GitSave\jspClass\Test\target\classes started by 3실습실 in C:\GitSave\jspClass\Test)
+2021-04-15 11:36:00 INFO No active profile set, falling back to default profiles: default
+2021-04-15 11:36:00 INFO Tomcat initialized with port(s): 8000 (http)
+2021-04-15 11:36:00 INFO Initializing ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:36:00 INFO Starting service [Tomcat]
+2021-04-15 11:36:00 INFO Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-15 11:36:00 INFO At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-15 11:36:00 INFO Initializing Spring embedded WebApplicationContext
+2021-04-15 11:36:00 INFO Root WebApplicationContext: initialization completed in 265 ms
+2021-04-15 11:36:00 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:36:00 INFO Adding welcome page template: index
+2021-04-15 11:36:00 INFO LiveReload server is running on port 35729
+2021-04-15 11:36:00 INFO Starting ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:36:00 INFO Tomcat started on port(s): 8000 (http) with context path ''
+2021-04-15 11:36:00 INFO Started TestApplication in 0.4 seconds (JVM running for 2874.151)
+2021-04-15 11:36:00 INFO Condition evaluation unchanged
+2021-04-15 11:40:20 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:40:20 INFO Starting TestApplication using Java 11.0.9 on HOME-PC with PID 5688 (C:\GitSave\jspClass\Test\target\classes started by 3실습실 in C:\GitSave\jspClass\Test)
+2021-04-15 11:40:20 INFO No active profile set, falling back to default profiles: default
+2021-04-15 11:40:20 INFO Tomcat initialized with port(s): 8000 (http)
+2021-04-15 11:40:20 INFO Initializing ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:40:20 INFO Starting service [Tomcat]
+2021-04-15 11:40:20 INFO Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-15 11:40:20 INFO At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-15 11:40:20 INFO Initializing Spring embedded WebApplicationContext
+2021-04-15 11:40:20 INFO Root WebApplicationContext: initialization completed in 264 ms
+2021-04-15 11:40:21 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:40:21 INFO Adding welcome page template: index
+2021-04-15 11:40:21 INFO LiveReload server is running on port 35729
+2021-04-15 11:40:21 INFO Starting ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:40:21 INFO Tomcat started on port(s): 8000 (http) with context path ''
+2021-04-15 11:40:21 INFO Started TestApplication in 0.399 seconds (JVM running for 3134.781)
+2021-04-15 11:40:21 INFO Condition evaluation unchanged
+2021-04-15 11:41:38 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:41:38 INFO Starting TestApplication using Java 11.0.9 on HOME-PC with PID 5688 (C:\GitSave\jspClass\Test\target\classes started by 3실습실 in C:\GitSave\jspClass\Test)
+2021-04-15 11:41:38 INFO No active profile set, falling back to default profiles: default
+2021-04-15 11:41:38 INFO Tomcat initialized with port(s): 8000 (http)
+2021-04-15 11:41:38 INFO Initializing ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:41:38 INFO Starting service [Tomcat]
+2021-04-15 11:41:38 INFO Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-15 11:41:38 INFO At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-15 11:41:38 INFO Initializing Spring embedded WebApplicationContext
+2021-04-15 11:41:38 INFO Root WebApplicationContext: initialization completed in 282 ms
+2021-04-15 11:41:38 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:41:38 INFO Adding welcome page template: index
+2021-04-15 11:41:38 INFO LiveReload server is running on port 35729
+2021-04-15 11:41:38 INFO Starting ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:41:38 INFO Tomcat started on port(s): 8000 (http) with context path ''
+2021-04-15 11:41:38 INFO Started TestApplication in 0.422 seconds (JVM running for 3212.563)
+2021-04-15 11:41:38 INFO Condition evaluation unchanged
+2021-04-15 11:47:15 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:47:15 INFO Starting TestApplication using Java 11.0.9 on HOME-PC with PID 5688 (C:\GitSave\jspClass\Test\target\classes started by 3실습실 in C:\GitSave\jspClass\Test)
+2021-04-15 11:47:15 INFO No active profile set, falling back to default profiles: default
+2021-04-15 11:47:15 INFO Tomcat initialized with port(s): 8000 (http)
+2021-04-15 11:47:15 INFO Initializing ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:47:15 INFO Starting service [Tomcat]
+2021-04-15 11:47:15 INFO Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-15 11:47:15 INFO At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-15 11:47:15 INFO Initializing Spring embedded WebApplicationContext
+2021-04-15 11:47:15 INFO Root WebApplicationContext: initialization completed in 264 ms
+2021-04-15 11:47:15 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-15 11:47:15 INFO Adding welcome page template: index
+2021-04-15 11:47:15 INFO LiveReload server is running on port 35729
+2021-04-15 11:47:15 INFO Starting ProtocolHandler ["http-nio-8000"]
+2021-04-15 11:47:15 INFO Tomcat started on port(s): 8000 (http) with context path ''
+2021-04-15 11:47:15 INFO Started TestApplication in 0.395 seconds (JVM running for 3549.661)
+2021-04-15 11:47:15 INFO Condition evaluation unchanged
+2021-04-15 12:12:14 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-15 12:12:14 INFO Starting TestApplication using Java 11.0.9 on HOME-PC with PID 5688 (C:\GitSave\jspClass\Test\target\classes started by 3실습실 in C:\GitSave\jspClass\Test)
+2021-04-15 12:12:14 INFO No active profile set, falling back to default profiles: default
+2021-04-15 12:12:14 INFO Tomcat initialized with port(s): 8000 (http)
+2021-04-15 12:12:14 INFO Initializing ProtocolHandler ["http-nio-8000"]
+2021-04-15 12:12:14 INFO Starting service [Tomcat]
+2021-04-15 12:12:14 INFO Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-15 12:12:14 INFO At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-15 12:12:14 INFO Initializing Spring embedded WebApplicationContext
+2021-04-15 12:12:14 INFO Root WebApplicationContext: initialization completed in 264 ms
+2021-04-15 12:12:14 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-15 12:12:14 INFO Adding welcome page template: index
+2021-04-15 12:12:14 INFO LiveReload server is running on port 35729
+2021-04-15 12:12:14 INFO Starting ProtocolHandler ["http-nio-8000"]
+2021-04-15 12:12:14 INFO Tomcat started on port(s): 8000 (http) with context path ''
+2021-04-15 12:12:14 INFO Started TestApplication in 0.393 seconds (JVM running for 5048.356)
+2021-04-15 12:12:14 INFO Condition evaluation unchanged
+2021-04-15 12:21:49 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-15 12:21:49 INFO Starting TestApplication using Java 11.0.9 on HOME-PC with PID 5688 (C:\GitSave\jspClass\Test\target\classes started by 3실습실 in C:\GitSave\jspClass\Test)
+2021-04-15 12:21:49 INFO No active profile set, falling back to default profiles: default
+2021-04-15 12:21:49 INFO Tomcat initialized with port(s): 8000 (http)
+2021-04-15 12:21:49 INFO Initializing ProtocolHandler ["http-nio-8000"]
+2021-04-15 12:21:49 INFO Starting service [Tomcat]
+2021-04-15 12:21:49 INFO Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-15 12:21:49 INFO At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-15 12:21:49 INFO Initializing Spring embedded WebApplicationContext
+2021-04-15 12:21:49 INFO Root WebApplicationContext: initialization completed in 266 ms
+2021-04-15 12:21:49 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-15 12:21:49 INFO Adding welcome page template: index
+2021-04-15 12:21:49 INFO LiveReload server is running on port 35729
+2021-04-15 12:21:49 INFO Starting ProtocolHandler ["http-nio-8000"]
+2021-04-15 12:21:49 INFO Tomcat started on port(s): 8000 (http) with context path ''
+2021-04-15 12:21:49 INFO Started TestApplication in 0.395 seconds (JVM running for 5623.683)
+2021-04-15 12:21:49 INFO Condition evaluation unchanged
+2021-04-15 12:21:57 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-15 12:21:57 INFO Starting TestApplication using Java 11.0.9 on HOME-PC with PID 5688 (C:\GitSave\jspClass\Test\target\classes started by 3실습실 in C:\GitSave\jspClass\Test)
+2021-04-15 12:21:57 INFO No active profile set, falling back to default profiles: default
+2021-04-15 12:21:58 INFO Tomcat initialized with port(s): 8000 (http)
+2021-04-15 12:21:58 INFO Initializing ProtocolHandler ["http-nio-8000"]
+2021-04-15 12:21:58 INFO Starting service [Tomcat]
+2021-04-15 12:21:58 INFO Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-15 12:21:58 INFO At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-15 12:21:58 INFO Initializing Spring embedded WebApplicationContext
+2021-04-15 12:21:58 INFO Root WebApplicationContext: initialization completed in 261 ms
+2021-04-15 12:21:58 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-15 12:21:58 INFO Adding welcome page template: index
+2021-04-15 12:21:58 INFO LiveReload server is running on port 35729
+2021-04-15 12:21:58 INFO Starting ProtocolHandler ["http-nio-8000"]
+2021-04-15 12:21:58 INFO Tomcat started on port(s): 8000 (http) with context path ''
+2021-04-15 12:21:58 INFO Started TestApplication in 0.396 seconds (JVM running for 5632.017)
+2021-04-15 12:21:58 INFO Condition evaluation unchanged
+2021-04-15 12:22:40 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-15 12:22:40 INFO Initializing Servlet 'dispatcherServlet'
+2021-04-15 12:22:40 INFO Completed initialization in 1 ms
+2021-04-15 12:22:52 WARN Resolved [org.springframework.web.multipart.support.MissingServletRequestPartException: Required request part 'files' is not present]
+2021-04-15 12:22:56 WARN Resolved [org.springframework.web.multipart.support.MissingServletRequestPartException: Required request part 'files' is not present]
+2021-04-15 12:22:57 WARN Resolved [org.springframework.web.multipart.support.MissingServletRequestPartException: Required request part 'files' is not present]
+2021-04-15 12:22:57 WARN Resolved [org.springframework.web.multipart.support.MissingServletRequestPartException: Required request part 'files' is not present]
+2021-04-15 12:22:58 WARN Resolved [org.springframework.web.multipart.support.MissingServletRequestPartException: Required request part 'files' is not present]
+2021-04-15 12:22:58 WARN Resolved [org.springframework.web.multipart.support.MissingServletRequestPartException: Required request part 'files' is not present]
+2021-04-15 12:22:58 WARN Resolved [org.springframework.web.multipart.support.MissingServletRequestPartException: Required request part 'files' is not present]
+2021-04-15 12:22:58 WARN Resolved [org.springframework.web.multipart.support.MissingServletRequestPartException: Required request part 'files' is not present]
+2021-04-15 12:22:58 WARN Resolved [org.springframework.web.multipart.support.MissingServletRequestPartException: Required request part 'files' is not present]
+2021-04-15 12:27:06 WARN Resolved [org.springframework.web.multipart.support.MissingServletRequestPartException: Required request part 'files' is not present]
+2021-04-15 12:38:04 INFO Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-15 12:38:04 INFO Starting TestApplication using Java 11.0.9 on HOME-PC with PID 5688 (C:\GitSave\jspClass\Test\target\classes started by 3실습실 in C:\GitSave\jspClass\Test)
+2021-04-15 12:38:04 INFO No active profile set, falling back to default profiles: default
+2021-04-15 12:38:04 INFO Tomcat initialized with port(s): 8000 (http)
+2021-04-15 12:38:04 INFO Initializing ProtocolHandler ["http-nio-8000"]
+2021-04-15 12:38:04 INFO Starting service [Tomcat]
+2021-04-15 12:38:04 INFO Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-15 12:38:04 INFO At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-15 12:38:04 INFO Initializing Spring embedded WebApplicationContext
+2021-04-15 12:38:04 INFO Root WebApplicationContext: initialization completed in 277 ms
+2021-04-15 12:38:04 INFO Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-15 12:38:04 INFO Adding welcome page template: index
+2021-04-15 12:38:04 INFO LiveReload server is running on port 35729
+2021-04-15 12:38:04 INFO Starting ProtocolHandler ["http-nio-8000"]
+2021-04-15 12:38:04 INFO Tomcat started on port(s): 8000 (http) with context path ''
+2021-04-15 12:38:04 INFO Started TestApplication in 0.431 seconds (JVM running for 6598.431)
+2021-04-15 12:38:04 INFO Condition evaluation unchanged

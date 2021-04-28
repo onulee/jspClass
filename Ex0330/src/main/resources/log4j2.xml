@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" monitorInterval="30">
+	<Properties>
+		<!-- 로그 형태 -->
+		<Property name="LOG_FORMAT">%d{yyyy-MM-dd HH:mm:ss} %p %m%n</Property>
+		<!-- 로그 파일 저장 위치 > 현재폴더아래 logSave>logs폴더 생성 -->
+		<Property name="BASE_DIR">./logSave/logs</Property>
+	</Properties>
+
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT" follow="true">
+			<PatternLayout pattern="${LOG_FORMAT}" />
+		</Console>
+		<RollingFile name="File"
+			fileName="${BASE_DIR}/bootLog.log"
+			filePattern="${BASE_DIR}/bootLog.%d{yyyyMMdd}.log">
+			<PatternLayout pattern="${LOG_FORMAT}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+			<DefaultRolloverStrategy>
+				<Delete basePath="${BASE_DIR}">
+					<IfFileName glob="*.log" />
+					<IfLastModified age="30d" />  <!-- 30일 지나면 자동삭제 -->
+				</Delete>
+			</DefaultRolloverStrategy>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="Console" />  <!-- 콘솔로그 남김 -->
+			<AppenderRef ref="File" />    <!-- 파일에 로그 남김 -->
+		</Root>
+	</Loggers>
+</Configuration>
+    

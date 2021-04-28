@@ -343,12 +343,8 @@
 						<p class="ntic">※ 비밀번호를 입력하시면 댓글이 비밀글로 등록 됩니다.</p>
 					</div>
 
-
-
-
                     <!-- 댓글이 추가되는 부분 -->
 					<div class="replyBox">
-												
                         <!-- 댓글 반복 -->
                         <c:forEach var="dto" items="${map.list }">
 							<ul id="${dto.commentNo}">
@@ -365,7 +361,6 @@
 								</li>
 							</ul>
 					    </c:forEach>
-                        
                         <!-- 샘플데이터 -->
                         <ul>
 							<li class="name">jjabcde <span>[2014-03-04&nbsp;&nbsp;15:01:59]</span></li>

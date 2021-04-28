@@ -13,7 +13,5 @@ public class Video_config implements WebMvcConfigurer {
 	    registry.addResourceHandler("/video/**")
         .addResourceLocations("file:///c:/upload/");
     }
-
-
 	
 }

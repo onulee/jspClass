@@ -47,10 +47,10 @@ public class EventSerivceImpl implements EventService {
 
 	@Override
 	public CommentDto commentUpdate_check(CommentDto commentDto) {
-		// 댓글 insert
+		// 댓글 update
 		eventMapper.updateCommentUpdate(commentDto);
 		int commentNo = commentDto.getCommentNo();
-		// 저장된 insert -> select 해서 가져옴
+		// 저장된 update -> select 해서 가져옴
 		CommentDto dto = eventMapper.selectCommentWrite(commentNo);
 		System.out.println("dto : " + dto.getCommentDate());
 		
