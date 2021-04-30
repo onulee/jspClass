@@ -39,6 +39,7 @@ public class BoardServiceImpl implements BoardService {
 			page = Integer.parseInt(listPage);
 		}
 		int startrow = (page-1)*limit+1; // 시작 게시글번호 1,11,21...
+		// int startrow = (int)(Math.ceil(1/10.0))*10
 		int endrow = startrow+limit-1; // 마지막 게시글번호 10,20,30...
 		
 		//리스트 가져오는 메소드
